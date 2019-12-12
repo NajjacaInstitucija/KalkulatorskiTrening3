@@ -1,0 +1,11 @@
+C:\ono moje\c#\ConsoleApp1\zadacaOsobaFejs\bin\Debug\netcoreapp3.1\OsobaFejs.exe
+C:\ono moje\c#\ConsoleApp1\zadacaOsobaFejs\bin\Debug\netcoreapp3.1\OsobaFejs.deps.json
+C:\ono moje\c#\ConsoleApp1\zadacaOsobaFejs\bin\Debug\netcoreapp3.1\OsobaFejs.runtimeconfig.json
+C:\ono moje\c#\ConsoleApp1\zadacaOsobaFejs\bin\Debug\netcoreapp3.1\OsobaFejs.runtimeconfig.dev.json
+C:\ono moje\c#\ConsoleApp1\zadacaOsobaFejs\bin\Debug\netcoreapp3.1\OsobaFejs.dll
+C:\ono moje\c#\ConsoleApp1\zadacaOsobaFejs\bin\Debug\netcoreapp3.1\OsobaFejs.pdb
+C:\ono moje\c#\ConsoleApp1\zadacaOsobaFejs\obj\Debug\netcoreapp3.1\OsobaFejs.csprojAssemblyReference.cache
+C:\ono moje\c#\ConsoleApp1\zadacaOsobaFejs\obj\Debug\netcoreapp3.1\OsobaFejs.AssemblyInfoInputs.cache
+C:\ono moje\c#\ConsoleApp1\zadacaOsobaFejs\obj\Debug\netcoreapp3.1\OsobaFejs.AssemblyInfo.cs
+C:\ono moje\c#\ConsoleApp1\zadacaOsobaFejs\obj\Debug\netcoreapp3.1\OsobaFejs.dll
+C:\ono moje\c#\ConsoleApp1\zadacaOsobaFejs\obj\Debug\netcoreapp3.1\OsobaFejs.pdb
