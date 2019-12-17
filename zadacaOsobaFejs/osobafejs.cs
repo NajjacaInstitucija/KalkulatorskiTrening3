@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections;
 
@@ -67,7 +67,7 @@ namespace OsobaFejs
                 }
 
             }
-            else throw new InvalidCastException("Jedna od osoba je izbacena");
+            else throw new InvalidOperationException("Jedna od osoba je izbacena");
         }
 
         public static Osoba operator +(Osoba o1, Osoba o2)
@@ -236,20 +236,25 @@ namespace OsobaFejs
 
         public Queue<Osoba> meduPrijatelji(Osoba o1, Osoba o2)
         {
-            if (o1.f == o2.f)
-            {
-                Queue<Osoba> redMeduPrijatelja = new Queue<Osoba>();
-                foreach (Osoba prijateljO1 in o1.prijatelji())
-                    foreach (Osoba prijateljO2 in o2.prijatelji())
-                        //if (prijateljO1.Equals(prijateljO2))
-                        if (prijateljO1 == prijateljO2)
-                            redMeduPrijatelja.Enqueue(prijateljO1);
 
-                return redMeduPrijatelja;
+            if (o1.f == this && o2.f == this)
+            {
+                if (o1.f == o2.f)
+                {
+                    Queue<Osoba> redMeduPrijatelja = new Queue<Osoba>();
+                    foreach (Osoba prijateljO1 in o1.prijatelji())
+                        foreach (Osoba prijateljO2 in o2.prijatelji())
+                            //if (prijateljO1.Equals(prijateljO2))
+                            if (prijateljO1 == prijateljO2)
+                                redMeduPrijatelja.Enqueue(prijateljO1);
+
+                    return redMeduPrijatelja;
+                }
+
+                else throw new InvalidOperationException("Osobe nisu na istom fejsu");
             }
 
-            else throw new InvalidCastException("Osobe nisu na istom fejsu");
-
+            else throw new InvalidOperationException("Bar jedna od osoba se ne nalazi na ovom fejsu");
 
             
         }
@@ -282,7 +287,7 @@ namespace OsobaFejs
     {
         static void Main(string[] args)
         {
-            Fejs f = new Fejs("lala");
+            Fejs f = new Fejs("qwertz");
             Osoba o1 = f.dodaj("Ella", "Dvornik");
             Osoba o2 = f.dodaj("Lidija", "Bacic");
             Osoba o3 = f.dodaj("Nera", "Nikolic");
@@ -293,17 +298,20 @@ namespace OsobaFejs
             Osoba o8 = f.dodaj("Jelena", "Peric");
             Osoba o9 = f.dodaj("Andela", "Ledenko");
 
+            Console.WriteLine("Sve osobe na fejsu : {0}", f.imeFejsa);
             f.IspisiSveSFejsa();
             Console.WriteLine("---------------------------------------------------");
 
+            Console.WriteLine("Osobe s prezimenom: Kovac");
             Dictionary<string, Osoba> osobeSPrezimenom = new Dictionary<string, Osoba>();
             osobeSPrezimenom = f["Kovac"];
             foreach (KeyValuePair<string, Osoba> osp in osobeSPrezimenom)
                 Console.WriteLine(osp.Key, osp.Value);
             Console.WriteLine("---------------------------------------------------");
-            Console.WriteLine(osobeSPrezimenom["Sonja"]);
+            Console.WriteLine("Osoba s prezimenom Kovac i imenom Sonja: {0}", osobeSPrezimenom["Sonja"]);
             Console.WriteLine("---------------------------------------------------");
 
+            Console.WriteLine("Nakon sorta:");
             f.Sort();
             f.IspisiSveSFejsa();
             Console.WriteLine("---------------------------------------------------");
@@ -321,8 +329,8 @@ namespace OsobaFejs
                 o3 += o8;
                 o3 += o9;
                 o4 += o5;
+                o4 += o6;
                 o4 += o7;
-                o4 += o8;
                 o5 += o8;
                 o5 += o7;
                 o6 += o9;
@@ -370,15 +378,92 @@ namespace OsobaFejs
             }catch(InvalidOperationException ex) { Console.WriteLine(ex.Message); }
             Console.WriteLine("---------------------------------------------------");
 
+            Console.WriteLine("Meduprijatelji: ");
             Queue<Osoba> redMeduprijatelja = f.meduPrijatelji(o1, o2);
             foreach (Osoba o in redMeduprijatelja)
                 Console.WriteLine(o);
             Console.WriteLine("---------------------------------------------------");
-
+            Console.WriteLine("Povratak o7 na Fejs");
             o7 = f.dodaj(o7.ime, o7.prezime);
             o7 += o9;
-            Console.WriteLine(o7.BrojPrijatelja);
+            o7 += o8;
+            Console.WriteLine("Br. prijatelja: {0}", o7.BrojPrijatelja);
+            Console.WriteLine("---------------------------------------------------");
+            Console.WriteLine("---------------------------------------------------");
+            Console.WriteLine("Fejs2:");
 
+            Fejs f2 = new Fejs("jabuka");
+            Osoba a1 = f2.dodaj("Prank", "Sinatra");
+            Osoba a2 = f2.dodaj("Dinah", "Mite");
+            Osoba a3 = f2.dodaj("Nera", "Nikolic");
+            Osoba a4 = f2.dodaj("Sonja", "Kovac");
+            Osoba a5 = f2.dodaj("Don", "Keigh");
+            Osoba a6 = f2.dodaj("Miso", "Kovac");
+            Osoba a7 = f2.dodaj("Ben", "Dover");
+            Osoba a8 = f2.dodaj("Eileen", "Dover");
+            Osoba a9 = f2.dodaj("Jack", "Inoff");
+            Osoba a10 = f2.dodaj("Ivana", "Fuccu");
+            Osoba a11 = f2.dodaj("Bon", "Herr");
+            Osoba a12 = f2.dodaj("Jack", "Pott");
+
+
+            try
+            {
+                a1 += a2;
+                a1 += a3;
+                a1 += a4;
+                a1 += a5;
+                a4 += a2;
+                a4 += a5;
+                a4 += a6;
+                a4 += a7;
+                a6 += a7;
+                a6 += a10;
+                a6 += a11;
+            }
+            catch(InvalidOperationException ex)
+            { Console.WriteLine(ex.Message); }
+
+            try
+            { a4 += a6; }
+            catch(InvalidOperationException ex)
+            { Console.WriteLine(ex.Message); }
+
+            try
+            { a4 += o6; }
+            catch(InvalidOperationException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            Console.WriteLine("---------------------------------------------------");
+
+            try
+            { f2.izbaci(o6); }
+            catch(InvalidOperationException ex) { Console.WriteLine(ex.Message); }
+
+            try
+            { Queue<Osoba> redMeduprijatelja2 = f.meduPrijatelji(a4, o6); }
+            catch (InvalidOperationException ex) { Console.WriteLine(ex.Message); }
+
+            try
+            { a3 -= o3; }
+            catch (InvalidOperationException ex) { Console.WriteLine(ex.Message); }
+
+            Console.WriteLine("---------------------------------------------------");
+            Console.WriteLine("Prijatelji: ");
+            foreach (Osoba o in a4.prijatelji())
+                Console.WriteLine(o);
+            Console.WriteLine("Broj prijatelja: {0}", a4.BrojPrijatelja);
+            Console.WriteLine("---------------------------------------------------");
+
+            try
+            { 
+                Queue<Osoba> redMeduprijatelja3 = f2.meduPrijatelji(a1, a4);
+                Console.WriteLine("Meduprijatelji: ");
+                foreach (Osoba a in redMeduprijatelja3)
+                    Console.WriteLine(a.ToString());
+            }
+            catch (InvalidOperationException ex) { Console.WriteLine(ex.Message); }
 
 
         }
