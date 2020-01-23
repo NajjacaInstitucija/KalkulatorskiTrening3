@@ -1,0 +1,11 @@
+C:\Users\student\Desktop\T\T\bin\Debug\T.exe.config
+C:\Users\student\Desktop\T\T\bin\Debug\T.exe
+C:\Users\student\Desktop\T\T\bin\Debug\T.pdb
+C:\Users\student\Desktop\T\T\obj\Debug\T.csprojAssemblyReference.cache
+C:\Users\student\Desktop\T\T\obj\Debug\T.Form1.resources
+C:\Users\student\Desktop\T\T\obj\Debug\T.Properties.Resources.resources
+C:\Users\student\Desktop\T\T\obj\Debug\T.csproj.GenerateResource.cache
+C:\Users\student\Desktop\T\T\obj\Debug\T.csproj.CoreCompileInputs.cache
+C:\Users\student\Desktop\T\T\obj\Debug\T.exe
+C:\Users\student\Desktop\T\T\obj\Debug\T.pdb
+C:\Users\student\Desktop\T\T\bin\Debug\Artikli.mdb
