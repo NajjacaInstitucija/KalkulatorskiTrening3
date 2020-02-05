@@ -11,16 +11,25 @@ using System.Windows.Forms;
 
 namespace T
 {
-       
+    
     public partial class Form1 : Form
     {
        
         OleDbConnection connection = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\student\Desktop\T\T\Artikli.mdb");
 
+        public bool manager = false;
+
         List<Artikl> racun = new List<Artikl>();
-        public Form1()
+        public Form1(bool isManager)
         {
             InitializeComponent();
+            manager = isManager;
+
+            if(!manager)
+            {
+                button6.Visible = false;
+                button7.Visible = false;
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -280,6 +289,19 @@ namespace T
 
 
 
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Form3 form3 = new Form3();
+            form3.ShowDialog();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Form4 form4 = new Form4();
+            form4.ShowDialog();
 
         }
     }
