@@ -32,5 +32,15 @@ namespace T.Properties {
                 return ((string)(this["ArtikliConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\\Zaposlenici.mdb")]
+        public string ZaposleniciConnectionString {
+            get {
+                return ((string)(this["ZaposleniciConnectionString"]));
+            }
+        }
     }
 }
