@@ -40,8 +40,8 @@ namespace T
             while (reader.Read())
             {
                 kontrola = true;
-                if (reader.GetBoolean(3)) manager = true;
-                break;
+                if (reader.GetBoolean(2)) manager = true;
+                
             }
             reader.Close();
             connection2.Close();

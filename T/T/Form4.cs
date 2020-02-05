@@ -14,28 +14,26 @@ namespace T
     public partial class Form4 : Form
     {
         OleDbConnection connection4 = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\student\Desktop\T\T\Artikli.mdb");
+        string item = "Prazno";
         public Form4()
         {
             InitializeComponent();
 
             listBox1.Items.Clear();
 
-           
+            
 
-                OleDbCommand cmd = new OleDbCommand();
+            OleDbCommand cmd = new OleDbCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "SELECT KodArtikla from Artikli";
 
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "SELECT KodArtikla from Artikli"; 
-               
-                cmd.Connection = connection4;
-
-                connection4.Open();
-                OleDbDataReader reader = cmd.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    listBox1.Items.Add(reader.GetString(0));
-                }
+            cmd.Connection = connection4;
+            connection4.Open();
+            OleDbDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                listBox1.Items.Add(reader.GetString(0));
+            }
                 reader.Close();
                 connection4.Close();
             
@@ -43,7 +41,21 @@ namespace T
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            label1.Text = listBox1.GetItemText(listBox1.SelectedItem);
+
+            OleDbCommand cmd = new OleDbCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "SELECT Ime from Artikli where KodArtikla = @KodArtikla"; 
+            cmd.Parameters.AddWithValue("@KodArtikla", listBox1.GetItemText(listBox1.SelectedItem));
+            cmd.Connection = connection4;
+            connection4.Open();
+            OleDbDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                item = reader.GetString(0);
+            }
+            reader.Close();
+            connection4.Close();
+            label2.Text = item;
         }
 
         private void button1_Click(object sender, EventArgs e)

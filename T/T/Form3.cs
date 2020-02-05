@@ -17,6 +17,7 @@ namespace T
         public Form3()
         {
             InitializeComponent();
+            textBox5.Text = DateTime.Now.ToShortDateString();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -29,17 +30,18 @@ namespace T
 
 
             cmd.Parameters.AddWithValue("@Ime", textBox1.Text);
-            cmd.Parameters.AddWithValue("@Cijena", Convert.ToDouble(textBox2.Text));
+            cmd.Parameters.AddWithValue("@Cijena", textBox2.Text);
             cmd.Parameters.AddWithValue("@kat", textBox3.Text);
-            cmd.Parameters.AddWithValue("@p", textBox4.Text);
-            cmd.Parameters.AddWithValue("@dn", Convert.ToDateTime(textBox5.Text));
+            cmd.Parameters.AddWithValue("@ru", dateTimePicker1.Text);
+            cmd.Parameters.AddWithValue("@dn", textBox5.Text);
             cmd.Parameters.AddWithValue("@ka", textBox6.Text);
-            cmd.Parameters.AddWithValue("@ru", Convert.ToDateTime(dateTimePicker1.Text));
+            cmd.Parameters.AddWithValue("@p", textBox4.Text);
+
 
             cmd.Connection = connection3;
             connection3.Open();
             cmd.ExecuteNonQuery();
-            DialogResult result = MessageBox.Show("An Item has been successfully added", "Caption", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            DialogResult result = MessageBox.Show("An Item has been successfully added", "Poruka", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
             connection3.Close();
 
