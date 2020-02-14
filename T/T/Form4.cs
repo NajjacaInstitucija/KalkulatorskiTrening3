@@ -13,8 +13,11 @@ namespace T
 {
     public partial class Form4 : Form
     {
-        OleDbConnection connection4 = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\student\Desktop\T\T\Artikli.mdb");
+        //OleDbConnection connection4 = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\student\Desktop\T\T\Artikli.mdb");
+        OleDbConnection connection4 = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\stvar\OneDrive\Desktop\T\T\Artikli.mdb");
+
         string item = "Prazno";
+
         public Form4()
         {
             InitializeComponent();
@@ -56,6 +59,7 @@ namespace T
             reader.Close();
             connection4.Close();
             label2.Text = item;
+            //label2.Text = listBox1.SelectedIndex.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -63,10 +67,10 @@ namespace T
             OleDbCommand cmd = new OleDbCommand();
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = "UPDATE Artikli set Popust = @Popust where KodArtikla = @KodArtikla";
-            
 
-            cmd.Parameters.AddWithValue("@KodArtikla", listBox1.GetItemText(listBox1.SelectedItem));
             cmd.Parameters.AddWithValue("@Popust", Convert.ToInt32(numericUpDown1.Value));
+            cmd.Parameters.AddWithValue("@KodArtikla", listBox1.GetItemText(listBox1.SelectedItem));
+            
 
             cmd.Connection = connection4;
             connection4.Open();
@@ -77,6 +81,9 @@ namespace T
 
             if(result == DialogResult.OK)
             this.Hide();
+
+            
+
         }
     }
 }

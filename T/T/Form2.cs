@@ -13,8 +13,8 @@ namespace T
 {
     public partial class Form2 : Form
     {
-
-        OleDbConnection connection2 = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\student\Desktop\T\T\Zaposlenici.mdb");
+        //"C:\Users\stvar\OneDrive\Desktop\T\T"
+        OleDbConnection connection2 = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\stvar\OneDrive\Desktop\T\T\Zaposlenici.mdb");
 
         public Form1 form1;
         public bool manager = false;
@@ -45,7 +45,7 @@ namespace T
             }
             reader.Close();
             connection2.Close();
-
+            
             form1 = new Form1(manager);
             if (kontrola)
             {

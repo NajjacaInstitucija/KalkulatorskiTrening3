@@ -14,8 +14,9 @@ namespace T
     
     public partial class Form1 : Form
     {
-       
-        OleDbConnection connection = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\student\Desktop\T\T\Artikli.mdb");
+
+        //OleDbConnection connection = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\student\Desktop\T\T\Artikli.mdb");
+        OleDbConnection connection = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\stvar\OneDrive\Desktop\T\T\Artikli.mdb");
 
         public bool manager = false;
 
@@ -37,13 +38,13 @@ namespace T
             // TODO: This line of code loads data into the 'artikliDataSet2.Artikli' table. You can move, or remove it, as needed.
             this.artikliTableAdapter.Fill(this.artikliDataSet2.Artikli);
             
-            
+           
 
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+           
             listBox1.Items.Clear();
 
             if (textBox1.Text != "")
@@ -174,7 +175,7 @@ namespace T
             connection.Close();
         }
 
-        //dodavanje artikla
+        //dodavanje artikla u kosaricu
         private void button1_Click(object sender, EventArgs e)
         {
             if (textBox2.Text != "")
@@ -193,8 +194,32 @@ namespace T
                     Artikl artikl = new Artikl(reader.GetString(1), Convert.ToDouble(reader.GetString(2)), reader.GetString(3), 
                         reader.GetString(4), reader.GetString(5), reader.GetString(6), Convert.ToInt32(reader.GetString(7)), Convert.ToInt32(numericUpDown1.Value));
 
+                    if (racun.Contains(artikl))
+                    {
+                        for (int i = 0; i < racun.Count; ++i)
+                            if (racun[i].CompareTo(artikl) == 0)
+                                racun[i] += artikl;
 
-                    racun.Add(artikl);
+
+                    }
+
+                    else
+                    {
+                        DateTime t1 = DateTime.Parse(artikl.RokUpotrebe);
+                        DateTime t2 = DateTime.Parse("20.3.2020");
+                        if (t1 < t2)
+                        {
+                            DialogResult res = MessageBox.Show("Odabranom artiklu uskoro istice rok trajanja! Jeste li sigurni da ga želite dodati u košaricu?",
+                              "Upozorenje", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+
+                            if (res == DialogResult.Yes) racun.Add(artikl);
+                        }
+
+
+
+                        else
+                        racun.Add(artikl); 
+                    }
                     
                 }
 
@@ -227,12 +252,28 @@ namespace T
 
             if (res == DialogResult.Yes)
             {
-                listBox2.Items.Remove(listBox2.SelectedItem);
+                
 
-                foreach (Artikl a in racun)
+               /* foreach (Artikl a in racun)
                     if (a.ToString() == listBox2.GetItemText(listBox2.SelectedItem))
-                        racun.Remove(a);
+                        racun.Remove(a);*/
+
+                racun.RemoveAt(listBox2.SelectedIndex-2);
+                //listBox2.Items.Remove(listBox2.SelectedItem);
             }
+
+            listBox2.Items.Clear();
+            listBox2.Items.Add("Kod artikla\t" + "Naziv\t\t" + "Cijena\t" + "Kolicina\t" + "Popust\t" + "Iznos");
+            listBox2.Items.Add("------------------------------------------------------------------------------------------------------------------------");
+
+            foreach (Artikl a in racun)
+                listBox2.Items.Add(a);
+
+            textBox2.Text = "";
+            textBox3.Text = "";
+            textBox1.Text = "";
+            textBox5.Text = "";
+            numericUpDown1.Value = 1;
         }
 
         // ispis racuna
@@ -304,9 +345,14 @@ namespace T
             form4.ShowDialog();
 
         }
+
+        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
-    public class Artikl
+    public class Artikl : IComparable<Artikl>
     {
         string ime;
         double cijena;
@@ -376,12 +422,41 @@ namespace T
             set { this.popust = value; }
         }
 
+        public int CompareTo(Artikl other)
+        {
+            return this.kodArtikla.CompareTo(other.kodArtikla);
+        }
+
+        public override bool Equals(object obj)
+        {
+            Artikl isArtikl = obj as Artikl;
+            if (isArtikl == null) return false;
+            
+            return this.kodArtikla.Equals(isArtikl.kodArtikla);
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
+
+        public static Artikl operator +(Artikl a1, Artikl a2)
+        {
+            if(a1.Equals(a2))
+            {
+                a1.kolicina += a2.kolicina;
+            }
+
+            return a1;
+        }
+
         public override string ToString()
         {
             if(this.Ime.Length < 10)
                 return this.kodArtikla + "\t" + this.ime + "\t\t" + this.cijena + "\t" + this.kolicina + "\t" + this.popust + "%\t" + (this.cijena - ((double)this.popust/100)*this.cijena)*this.kolicina; 
 
-            else return this.kodArtikla + "\t" + this.ime + "\t" + this.cijena + "\t" + this.kolicina + "\t" + this.popust + "%\t" + (this.cijena - (double)(this.popust / 100) * this.cijena) * this.kolicina;
+            else return this.kodArtikla + "\t" + this.ime + "\t" + this.cijena + "\t" + this.kolicina + "\t" + this.popust + "%\t" + (this.cijena - ((double)this.popust / 100) * this.cijena) * this.kolicina;
         }
 
 
