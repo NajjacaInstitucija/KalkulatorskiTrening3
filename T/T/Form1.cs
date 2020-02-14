@@ -30,6 +30,7 @@ namespace T
             {
                 button6.Visible = false;
                 button7.Visible = false;
+                button8.Visible = false;
             }
         }
 
@@ -37,8 +38,28 @@ namespace T
         {
             // TODO: This line of code loads data into the 'artikliDataSet2.Artikli' table. You can move, or remove it, as needed.
             this.artikliTableAdapter.Fill(this.artikliDataSet2.Artikli);
+
+            OleDbCommand cmd = new OleDbCommand();
+
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "Select Kategorija from Artikli";
+
+            cmd.Connection = connection;
+
+            connection.Open();
+            OleDbDataReader reader = cmd.ExecuteReader();
+
+            while(reader.Read())
+            {
+                if(!comboBox1.Items.Contains(reader[0].ToString()))
+                comboBox1.Items.Add(reader[0].ToString());
+            }
+            reader.Close();
+            connection.Close();
             
-           
+
+            //comboBox1.Items.Add("nesto");
+
 
         }
 
@@ -53,7 +74,7 @@ namespace T
                 OleDbCommand cmd = new OleDbCommand();
 
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "SELECT Ime from Artikli where Ime like '" + textBox1.Text + "%'";
+                cmd.CommandText = "SELECT Ime from Artikli where Ime like '" + textBox1.Text + "%' or Ime like '% " + textBox1.Text + "%'" ;
                 //cmd.Parameters.AddWithValue("@Ime", textBox1.Text);
                 cmd.Connection = connection;
 
@@ -325,6 +346,8 @@ namespace T
             if(res == DialogResult.OK)
             {
                 //ispisi racun
+                listBox2.Items.Clear();
+                listBox1.Items.Clear();
             }
 
 
@@ -349,6 +372,39 @@ namespace T
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
+            textBox2.Text = "";
+            textBox3.Text = "";
+            textBox1.Text = "";
+            textBox5.Text = "";
+            numericUpDown1.Value = 1;
+
+            OleDbCommand cmd = new OleDbCommand();
+
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "Select Ime from Artikli where Kategorija = @kat";
+            cmd.Parameters.AddWithValue("@kat", comboBox1.GetItemText(comboBox1.SelectedItem));
+
+            cmd.Connection = connection;
+            connection.Open();
+
+            OleDbDataReader reader = cmd.ExecuteReader();
+            while(reader.Read())
+            {
+                listBox1.Items.Add(reader.GetString(0));
+            }
+            reader.Close();
+            connection.Close();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Form5 form5 = new Form5();
+            form5.ShowDialog();
         }
     }
 

@@ -25,31 +25,37 @@ namespace T
         private void button1_Click(object sender, EventArgs e)
         {
             //spremanje u bazu
-            OleDbCommand cmd = new OleDbCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "INSERT INTO Artikli (Ime, Cijena, Kategorija, RokUpotrebe, DatumNabave, KodArtikla, Popust)" + 
-                "VALUES (@Ime, @Cijena, @kat, @ru, @dn, @ka, @p)";
+            DialogResult uvjet = MessageBox.Show("Ubacivanje tog artikla će utjecati na stanje u dućanu!", "Insert", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+            if (uvjet == DialogResult.Yes)
+            {
+                OleDbCommand cmd = new OleDbCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "INSERT INTO Artikli (Ime, Cijena, Kategorija, RokUpotrebe, DatumNabave, KodArtikla, Popust)" +
+                    "VALUES (@Ime, @Cijena, @kat, @ru, @dn, @ka, @p)";
 
 
-            cmd.Parameters.AddWithValue("@Ime", textBox1.Text);
-            cmd.Parameters.AddWithValue("@Cijena", textBox2.Text);
-            cmd.Parameters.AddWithValue("@kat", textBox3.Text);
-            cmd.Parameters.AddWithValue("@ru", dateTimePicker1.Text);
-            cmd.Parameters.AddWithValue("@dn", textBox5.Text);
-            cmd.Parameters.AddWithValue("@ka", textBox6.Text);
-            cmd.Parameters.AddWithValue("@p", textBox4.Text);
+                cmd.Parameters.AddWithValue("@Ime", textBox1.Text);
+                cmd.Parameters.AddWithValue("@Cijena", textBox2.Text);
+                cmd.Parameters.AddWithValue("@kat", textBox3.Text);
+                cmd.Parameters.AddWithValue("@ru", dateTimePicker1.Text);
+                cmd.Parameters.AddWithValue("@dn", textBox5.Text);
+                cmd.Parameters.AddWithValue("@ka", textBox6.Text);
+                cmd.Parameters.AddWithValue("@p", textBox4.Text);
 
 
-            cmd.Connection = connection3;
-            connection3.Open();
-            cmd.ExecuteNonQuery();
-            DialogResult result = MessageBox.Show("An Item has been successfully added", "Poruka", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                cmd.Connection = connection3;
+                connection3.Open();
+                cmd.ExecuteNonQuery();
+                DialogResult result = MessageBox.Show("An Item has been successfully added", "Poruka", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
 
-            connection3.Close();
+                connection3.Close();
 
-            if(result == DialogResult.OK)
-            this.Hide();
-            // zatvori formu 3
+                if (result == DialogResult.OK)
+                    this.Hide();
+                // zatvori formu 3
+            }
+
+            else this.Hide();
         }
     }
 }

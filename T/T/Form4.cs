@@ -64,25 +64,33 @@ namespace T
 
         private void button1_Click(object sender, EventArgs e)
         {
-            OleDbCommand cmd = new OleDbCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "UPDATE Artikli set Popust = @Popust where KodArtikla = @KodArtikla";
 
-            cmd.Parameters.AddWithValue("@Popust", Convert.ToInt32(numericUpDown1.Value));
-            cmd.Parameters.AddWithValue("@KodArtikla", listBox1.GetItemText(listBox1.SelectedItem));
-            
+            DialogResult uvjet = MessageBox.Show("Primjena popusta će utjecati na stanje u dućanu", "Warning", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
 
-            cmd.Connection = connection4;
-            connection4.Open();
-            cmd.ExecuteNonQuery();
-            DialogResult result = MessageBox.Show("Popust promijenjen.", "Info", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            if (uvjet == DialogResult.Yes)
+            {
 
-            connection4.Close();
+                OleDbCommand cmd = new OleDbCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "UPDATE Artikli set Popust = @Popust where KodArtikla = @KodArtikla";
 
-            if(result == DialogResult.OK)
-            this.Hide();
+                cmd.Parameters.AddWithValue("@Popust", Convert.ToInt32(numericUpDown1.Value));
+                cmd.Parameters.AddWithValue("@KodArtikla", listBox1.GetItemText(listBox1.SelectedItem));
 
-            
+
+                cmd.Connection = connection4;
+                connection4.Open();
+                cmd.ExecuteNonQuery();
+                DialogResult result = MessageBox.Show("Popust promijenjen.", "Info", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+                connection4.Close();
+
+                if (result == DialogResult.OK)
+                    this.Hide();
+
+            }
+
+            else this.Hide();
 
         }
     }
