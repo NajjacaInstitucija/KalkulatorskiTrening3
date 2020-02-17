@@ -1,0 +1,9 @@
+C:\Users\stvar\source\repos\vjezbe091\bin\Debug\vjezbe091.exe.config
+C:\Users\stvar\source\repos\vjezbe091\bin\Debug\vjezbe091.exe
+C:\Users\stvar\source\repos\vjezbe091\bin\Debug\vjezbe091.pdb
+C:\Users\stvar\source\repos\vjezbe091\obj\Debug\vjezbe091.csprojAssemblyReference.cache
+C:\Users\stvar\source\repos\vjezbe091\obj\Debug\vjezbe091.Form1.resources
+C:\Users\stvar\source\repos\vjezbe091\obj\Debug\vjezbe091.Properties.Resources.resources
+C:\Users\stvar\source\repos\vjezbe091\obj\Debug\vjezbe091.csproj.GenerateResource.cache
+C:\Users\stvar\source\repos\vjezbe091\obj\Debug\vjezbe091.exe
+C:\Users\stvar\source\repos\vjezbe091\obj\Debug\vjezbe091.pdb
