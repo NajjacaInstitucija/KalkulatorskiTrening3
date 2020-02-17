@@ -1,0 +1,8 @@
+C:\Users\stvar\source\repos\forme13\bin\Debug\forme13.exe.config
+C:\Users\stvar\source\repos\forme13\bin\Debug\forme13.exe
+C:\Users\stvar\source\repos\forme13\bin\Debug\forme13.pdb
+C:\Users\stvar\source\repos\forme13\obj\Debug\forme13.Form1.resources
+C:\Users\stvar\source\repos\forme13\obj\Debug\forme13.Properties.Resources.resources
+C:\Users\stvar\source\repos\forme13\obj\Debug\forme13.csproj.GenerateResource.cache
+C:\Users\stvar\source\repos\forme13\obj\Debug\forme13.exe
+C:\Users\stvar\source\repos\forme13\obj\Debug\forme13.pdb

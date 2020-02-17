@@ -1,0 +1,8 @@
+C:\Users\stvar\source\repos\impro\bin\Debug\impro.exe.config
+C:\Users\stvar\source\repos\impro\bin\Debug\impro.exe
+C:\Users\stvar\source\repos\impro\bin\Debug\impro.pdb
+C:\Users\stvar\source\repos\impro\obj\Debug\impro.Form1.resources
+C:\Users\stvar\source\repos\impro\obj\Debug\impro.Properties.Resources.resources
+C:\Users\stvar\source\repos\impro\obj\Debug\impro.csproj.GenerateResource.cache
+C:\Users\stvar\source\repos\impro\obj\Debug\impro.exe
+C:\Users\stvar\source\repos\impro\obj\Debug\impro.pdb

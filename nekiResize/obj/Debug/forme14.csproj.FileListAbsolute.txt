@@ -1,0 +1,9 @@
+C:\Users\stvar\source\repos\forme14\bin\Debug\forme14.exe.config
+C:\Users\stvar\source\repos\forme14\bin\Debug\forme14.exe
+C:\Users\stvar\source\repos\forme14\bin\Debug\forme14.pdb
+C:\Users\stvar\source\repos\forme14\obj\Debug\forme14.csprojAssemblyReference.cache
+C:\Users\stvar\source\repos\forme14\obj\Debug\forme14.Form1.resources
+C:\Users\stvar\source\repos\forme14\obj\Debug\forme14.Properties.Resources.resources
+C:\Users\stvar\source\repos\forme14\obj\Debug\forme14.csproj.GenerateResource.cache
+C:\Users\stvar\source\repos\forme14\obj\Debug\forme14.exe
+C:\Users\stvar\source\repos\forme14\obj\Debug\forme14.pdb
