@@ -1,0 +1,8 @@
+C:\Users\stvar\source\repos\forme7\obj\Debug\forme7.Form1.resources
+C:\Users\stvar\source\repos\forme7\obj\Debug\forme7.Properties.Resources.resources
+C:\Users\stvar\source\repos\forme7\obj\Debug\forme7.csproj.GenerateResource.cache
+C:\Users\stvar\source\repos\forme7\bin\Debug\forme7.exe.config
+C:\Users\stvar\source\repos\forme7\bin\Debug\forme7.exe
+C:\Users\stvar\source\repos\forme7\bin\Debug\forme7.pdb
+C:\Users\stvar\source\repos\forme7\obj\Debug\forme7.exe
+C:\Users\stvar\source\repos\forme7\obj\Debug\forme7.pdb

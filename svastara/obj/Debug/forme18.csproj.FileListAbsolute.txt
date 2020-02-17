@@ -1,0 +1,16 @@
+C:\Users\stvar\source\repos\forme18\bin\Debug\forme18.exe.config
+C:\Users\stvar\source\repos\forme18\bin\Debug\forme18.exe
+C:\Users\stvar\source\repos\forme18\bin\Debug\forme18.pdb
+C:\Users\stvar\source\repos\forme18\obj\Debug\forme18.Form1.resources
+C:\Users\stvar\source\repos\forme18\obj\Debug\forme18.Properties.Resources.resources
+C:\Users\stvar\source\repos\forme18\obj\Debug\forme18.csproj.GenerateResource.cache
+C:\Users\stvar\source\repos\forme18\obj\Debug\forme18.exe
+C:\Users\stvar\source\repos\forme18\obj\Debug\forme18.pdb
+C:\Users\stvar\source\repos\povlacenjegumba\bin\Debug\forme18.exe.config
+C:\Users\stvar\source\repos\povlacenjegumba\bin\Debug\forme18.exe
+C:\Users\stvar\source\repos\povlacenjegumba\bin\Debug\forme18.pdb
+C:\Users\stvar\source\repos\povlacenjegumba\obj\Debug\forme18.Form1.resources
+C:\Users\stvar\source\repos\povlacenjegumba\obj\Debug\forme18.Properties.Resources.resources
+C:\Users\stvar\source\repos\povlacenjegumba\obj\Debug\forme18.csproj.GenerateResource.cache
+C:\Users\stvar\source\repos\povlacenjegumba\obj\Debug\forme18.exe
+C:\Users\stvar\source\repos\povlacenjegumba\obj\Debug\forme18.pdb

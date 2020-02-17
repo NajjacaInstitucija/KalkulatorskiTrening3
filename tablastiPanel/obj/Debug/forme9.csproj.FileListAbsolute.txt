@@ -1,0 +1,8 @@
+C:\Users\stvar\source\repos\forme9\obj\Debug\forme9.Form1.resources
+C:\Users\stvar\source\repos\forme9\obj\Debug\forme9.Properties.Resources.resources
+C:\Users\stvar\source\repos\forme9\obj\Debug\forme9.csproj.GenerateResource.cache
+C:\Users\stvar\source\repos\forme9\bin\Debug\forme9.exe.config
+C:\Users\stvar\source\repos\forme9\bin\Debug\forme9.exe
+C:\Users\stvar\source\repos\forme9\bin\Debug\forme9.pdb
+C:\Users\stvar\source\repos\forme9\obj\Debug\forme9.exe
+C:\Users\stvar\source\repos\forme9\obj\Debug\forme9.pdb

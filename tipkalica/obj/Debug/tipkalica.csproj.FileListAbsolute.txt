@@ -1,0 +1,9 @@
+C:\Users\stvar\source\repos\tipkalica\bin\Debug\tipkalica.exe.config
+C:\Users\stvar\source\repos\tipkalica\bin\Debug\tipkalica.exe
+C:\Users\stvar\source\repos\tipkalica\bin\Debug\tipkalica.pdb
+C:\Users\stvar\source\repos\tipkalica\obj\Debug\tipkalica.csprojAssemblyReference.cache
+C:\Users\stvar\source\repos\tipkalica\obj\Debug\tipkalica.Form1.resources
+C:\Users\stvar\source\repos\tipkalica\obj\Debug\tipkalica.Properties.Resources.resources
+C:\Users\stvar\source\repos\tipkalica\obj\Debug\tipkalica.csproj.GenerateResource.cache
+C:\Users\stvar\source\repos\tipkalica\obj\Debug\tipkalica.exe
+C:\Users\stvar\source\repos\tipkalica\obj\Debug\tipkalica.pdb
