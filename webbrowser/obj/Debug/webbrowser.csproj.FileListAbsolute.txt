@@ -1,0 +1,9 @@
+C:\Users\stvar\source\repos\webbrowser\bin\Debug\webbrowser.exe.config
+C:\Users\stvar\source\repos\webbrowser\bin\Debug\webbrowser.exe
+C:\Users\stvar\source\repos\webbrowser\bin\Debug\webbrowser.pdb
+C:\Users\stvar\source\repos\webbrowser\obj\Debug\webbrowser.csprojAssemblyReference.cache
+C:\Users\stvar\source\repos\webbrowser\obj\Debug\webbrowser.Form1.resources
+C:\Users\stvar\source\repos\webbrowser\obj\Debug\webbrowser.Properties.Resources.resources
+C:\Users\stvar\source\repos\webbrowser\obj\Debug\webbrowser.csproj.GenerateResource.cache
+C:\Users\stvar\source\repos\webbrowser\obj\Debug\webbrowser.exe
+C:\Users\stvar\source\repos\webbrowser\obj\Debug\webbrowser.pdb
