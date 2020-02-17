@@ -1,0 +1,9 @@
+C:\Users\stvar\source\repos\prostifaktori\bin\Debug\prostifaktori.exe.config
+C:\Users\stvar\source\repos\prostifaktori\bin\Debug\prostifaktori.exe
+C:\Users\stvar\source\repos\prostifaktori\bin\Debug\prostifaktori.pdb
+C:\Users\stvar\source\repos\prostifaktori\obj\Debug\prostifaktori.csprojAssemblyReference.cache
+C:\Users\stvar\source\repos\prostifaktori\obj\Debug\prostifaktori.Form1.resources
+C:\Users\stvar\source\repos\prostifaktori\obj\Debug\prostifaktori.Properties.Resources.resources
+C:\Users\stvar\source\repos\prostifaktori\obj\Debug\prostifaktori.csproj.GenerateResource.cache
+C:\Users\stvar\source\repos\prostifaktori\obj\Debug\prostifaktori.exe
+C:\Users\stvar\source\repos\prostifaktori\obj\Debug\prostifaktori.pdb

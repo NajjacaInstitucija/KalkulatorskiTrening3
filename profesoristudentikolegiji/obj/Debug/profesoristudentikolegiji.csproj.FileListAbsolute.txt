@@ -1,0 +1,9 @@
+C:\Users\stvar\source\repos\profesoristudentikolegiji\obj\Debug\profesoristudentikolegiji.csprojAssemblyReference.cache
+C:\Users\stvar\source\repos\profesoristudentikolegiji\obj\Debug\profesoristudentikolegiji.Form1.resources
+C:\Users\stvar\source\repos\profesoristudentikolegiji\obj\Debug\profesoristudentikolegiji.Properties.Resources.resources
+C:\Users\stvar\source\repos\profesoristudentikolegiji\obj\Debug\profesoristudentikolegiji.csproj.GenerateResource.cache
+C:\Users\stvar\source\repos\profesoristudentikolegiji\bin\Debug\profesoristudentikolegiji.exe.config
+C:\Users\stvar\source\repos\profesoristudentikolegiji\bin\Debug\profesoristudentikolegiji.exe
+C:\Users\stvar\source\repos\profesoristudentikolegiji\bin\Debug\profesoristudentikolegiji.pdb
+C:\Users\stvar\source\repos\profesoristudentikolegiji\obj\Debug\profesoristudentikolegiji.exe
+C:\Users\stvar\source\repos\profesoristudentikolegiji\obj\Debug\profesoristudentikolegiji.pdb

@@ -1,0 +1,9 @@
+C:\Users\stvar\source\repos\forme15\bin\Debug\forme15.exe.config
+C:\Users\stvar\source\repos\forme15\bin\Debug\forme15.exe
+C:\Users\stvar\source\repos\forme15\bin\Debug\forme15.pdb
+C:\Users\stvar\source\repos\forme15\obj\Debug\forme15.csprojAssemblyReference.cache
+C:\Users\stvar\source\repos\forme15\obj\Debug\forme15.Form1.resources
+C:\Users\stvar\source\repos\forme15\obj\Debug\forme15.Properties.Resources.resources
+C:\Users\stvar\source\repos\forme15\obj\Debug\forme15.csproj.GenerateResource.cache
+C:\Users\stvar\source\repos\forme15\obj\Debug\forme15.exe
+C:\Users\stvar\source\repos\forme15\obj\Debug\forme15.pdb
