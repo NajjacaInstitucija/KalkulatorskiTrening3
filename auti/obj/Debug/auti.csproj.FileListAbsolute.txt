@@ -1,0 +1,9 @@
+C:\Users\stvar\source\repos\auti\bin\Debug\auti.exe.config
+C:\Users\stvar\source\repos\auti\bin\Debug\auti.exe
+C:\Users\stvar\source\repos\auti\bin\Debug\auti.pdb
+C:\Users\stvar\source\repos\auti\obj\Debug\auti.csprojAssemblyReference.cache
+C:\Users\stvar\source\repos\auti\obj\Debug\auti.Form1.resources
+C:\Users\stvar\source\repos\auti\obj\Debug\auti.Properties.Resources.resources
+C:\Users\stvar\source\repos\auti\obj\Debug\auti.csproj.GenerateResource.cache
+C:\Users\stvar\source\repos\auti\obj\Debug\auti.exe
+C:\Users\stvar\source\repos\auti\obj\Debug\auti.pdb
