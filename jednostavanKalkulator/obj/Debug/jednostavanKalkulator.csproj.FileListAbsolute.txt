@@ -1,0 +1,9 @@
+C:\Users\stvar\source\repos\jednostavanKalkulator\bin\Debug\jednostavanKalkulator.exe.config
+C:\Users\stvar\source\repos\jednostavanKalkulator\bin\Debug\jednostavanKalkulator.exe
+C:\Users\stvar\source\repos\jednostavanKalkulator\bin\Debug\jednostavanKalkulator.pdb
+C:\Users\stvar\source\repos\jednostavanKalkulator\obj\Debug\jednostavanKalkulator.csprojAssemblyReference.cache
+C:\Users\stvar\source\repos\jednostavanKalkulator\obj\Debug\jednostavanKalkulator.Form1.resources
+C:\Users\stvar\source\repos\jednostavanKalkulator\obj\Debug\jednostavanKalkulator.Properties.Resources.resources
+C:\Users\stvar\source\repos\jednostavanKalkulator\obj\Debug\jednostavanKalkulator.csproj.GenerateResource.cache
+C:\Users\stvar\source\repos\jednostavanKalkulator\obj\Debug\jednostavanKalkulator.exe
+C:\Users\stvar\source\repos\jednostavanKalkulator\obj\Debug\jednostavanKalkulator.pdb
