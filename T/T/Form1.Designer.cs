@@ -89,8 +89,13 @@
             this.cekoviToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.karticaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bonoviToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.personalizacijaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fontToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bojaPozadineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.izradiRačunToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.fontDialog1 = new System.Windows.Forms.FontDialog();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.artikliBindingSource)).BeginInit();
@@ -112,7 +117,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(125, 358);
+            this.textBox1.Location = new System.Drawing.Point(133, 358);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(153, 30);
@@ -121,7 +126,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(125, 674);
+            this.textBox2.Location = new System.Drawing.Point(133, 674);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(153, 30);
@@ -150,7 +155,7 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(125, 743);
+            this.textBox3.Location = new System.Drawing.Point(133, 743);
             this.textBox3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(153, 30);
@@ -158,7 +163,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(125, 875);
+            this.button1.Location = new System.Drawing.Point(133, 875);
             this.button1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(155, 56);
@@ -210,7 +215,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(125, 540);
+            this.button3.Location = new System.Drawing.Point(131, 532);
             this.button3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(155, 47);
@@ -221,7 +226,7 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(125, 469);
+            this.textBox5.Location = new System.Drawing.Point(133, 469);
             this.textBox5.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(153, 30);
@@ -229,7 +234,7 @@
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(125, 805);
+            this.numericUpDown1.Location = new System.Drawing.Point(133, 805);
             this.numericUpDown1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             1000,
@@ -494,7 +499,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(125, 411);
+            this.comboBox1.Location = new System.Drawing.Point(133, 411);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(153, 31);
@@ -527,7 +532,7 @@
             this.toolStripProgressBar1});
             this.statusStrip1.Location = new System.Drawing.Point(0, 937);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1755, 26);
+            this.statusStrip1.Size = new System.Drawing.Size(1839, 26);
             this.statusStrip1.TabIndex = 29;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -564,7 +569,7 @@
             // toolStripStatusLabel6
             // 
             this.toolStripStatusLabel6.Name = "toolStripStatusLabel6";
-            this.toolStripStatusLabel6.Size = new System.Drawing.Size(776, 20);
+            this.toolStripStatusLabel6.Size = new System.Drawing.Size(860, 20);
             this.toolStripStatusLabel6.Spring = true;
             this.toolStripStatusLabel6.Text = "Trenutni posljužitelj: ";
             // 
@@ -586,10 +591,11 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.upravljanjeToolStripMenuItem,
             this.načinPlaćanjaToolStripMenuItem,
+            this.personalizacijaToolStripMenuItem,
             this.izradiRačunToolStripMenuItem,
             this.logoutToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(177, 100);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(177, 124);
             // 
             // upravljanjeToolStripMenuItem
             // 
@@ -661,6 +667,29 @@
             this.bonoviToolStripMenuItem.Text = "bonovi";
             this.bonoviToolStripMenuItem.Click += new System.EventHandler(this.bonoviToolStripMenuItem_Click);
             // 
+            // personalizacijaToolStripMenuItem
+            // 
+            this.personalizacijaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fontToolStripMenuItem,
+            this.bojaPozadineToolStripMenuItem});
+            this.personalizacijaToolStripMenuItem.Name = "personalizacijaToolStripMenuItem";
+            this.personalizacijaToolStripMenuItem.Size = new System.Drawing.Size(176, 24);
+            this.personalizacijaToolStripMenuItem.Text = "Personalizacija";
+            // 
+            // fontToolStripMenuItem
+            // 
+            this.fontToolStripMenuItem.Name = "fontToolStripMenuItem";
+            this.fontToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
+            this.fontToolStripMenuItem.Text = "Font";
+            this.fontToolStripMenuItem.Click += new System.EventHandler(this.fontToolStripMenuItem_Click);
+            // 
+            // bojaPozadineToolStripMenuItem
+            // 
+            this.bojaPozadineToolStripMenuItem.Name = "bojaPozadineToolStripMenuItem";
+            this.bojaPozadineToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
+            this.bojaPozadineToolStripMenuItem.Text = "Boja pozadine";
+            this.bojaPozadineToolStripMenuItem.Click += new System.EventHandler(this.bojaPozadineToolStripMenuItem_Click);
+            // 
             // izradiRačunToolStripMenuItem
             // 
             this.izradiRačunToolStripMenuItem.Name = "izradiRačunToolStripMenuItem";
@@ -680,7 +709,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1776, 959);
+            this.ClientSize = new System.Drawing.Size(1860, 959);
             this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.button8);
@@ -790,6 +819,11 @@
         private System.Windows.Forms.ToolStripMenuItem bonoviToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem izradiRačunToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem personalizacijaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fontToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bojaPozadineToolStripMenuItem;
+        private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.FontDialog fontDialog1;
     }
 }
 

@@ -8,12 +8,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Security.Cryptography;
 
 namespace T
 {
     public partial class Form6 : Form
     {
         OleDbConnection connection6 = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\stvar\OneDrive\Desktop\T\T\Zaposlenici.mdb");
+
+
+        static string encryptPassword(string value)
+        {
+            using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
+            {
+                UTF8Encoding utf8 = new UTF8Encoding();
+                byte[] data = md5.ComputeHash(utf8.GetBytes(value));
+                return Convert.ToBase64String(data);
+            }
+        }
 
         public Form6()
         {
@@ -26,7 +38,8 @@ namespace T
         private void button1_Click(object sender, EventArgs e)
         {
             // ovdje obaviti provjeru postoji li taj username vec i poklapaju li se passwordovi
-            if(textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "")
+
+            if(string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox2.Text) || string.IsNullOrEmpty(textBox3.Text))
             {
                 errorProvider1.SetError(button1, "Sva polja moraju biti popunjena");
                 return;
@@ -67,13 +80,14 @@ namespace T
             {
                 OleDbCommand cmdInsert = new OleDbCommand();
                 cmdInsert.CommandType = CommandType.Text;
-                cmdInsert.CommandText = "INSERT INTO Zaposlenici (Username, Password, IsManager) " +
+                cmdInsert.CommandText = "INSERT INTO Zaposlenici (Username, Password, IsManager)" +
                     "VALUES (@Username, @Password, @IsManager)";
 
                 cmdInsert.Parameters.AddWithValue("@Username", textBox1.Text);
-                cmdInsert.Parameters.AddWithValue("@Password", textBox2.Text);
+                cmdInsert.Parameters.AddWithValue("@Password", encryptPassword(textBox2.Text));
                 cmdInsert.Parameters.AddWithValue("@IsManager", checkBox1.Checked);
                 cmdInsert.Connection = connection6;
+
 
                 connection6.Open();
                 cmdInsert.ExecuteNonQuery();

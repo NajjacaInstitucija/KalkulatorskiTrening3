@@ -25,7 +25,8 @@ namespace T
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" ||textBox4.Text == "" || textBox5.Text == "" || textBox6.Text == "" )
+            if(string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox2.Text) || string.IsNullOrEmpty(textBox3.Text) ||
+                string.IsNullOrEmpty(textBox4.Text) || string.IsNullOrEmpty(textBox5.Text) || string.IsNullOrEmpty(textBox6.Text))
             {
                 
                 errorProvider1.SetError(button1, "Jedno od polja je prazno");

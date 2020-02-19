@@ -79,7 +79,7 @@ namespace T
            
             listBox1.Items.Clear();
 
-            if (textBox1.Text != "")
+            if (!string.IsNullOrEmpty(textBox1.Text))
             {
 
                 OleDbCommand cmd = new OleDbCommand();
@@ -210,7 +210,7 @@ namespace T
         //dodavanje artikla u kosaricu
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox2.Text != "")
+            if (!string.IsNullOrEmpty(textBox2.Text))
             {
                 OleDbCommand cmd = new OleDbCommand();
 
@@ -526,6 +526,20 @@ namespace T
             radioButton1.Checked = false;
             if (!radioButton4.Checked)
                 radioButton4.Checked = true;
+        }
+
+        private void fontToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult res = fontDialog1.ShowDialog();
+            if (res == DialogResult.OK)
+                this.Font = fontDialog1.Font;
+        }
+
+        private void bojaPozadineToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult res = colorDialog1.ShowDialog();
+            if (res == DialogResult.OK)
+                this.BackColor = colorDialog1.Color;
         }
 
         private void button8_Click(object sender, EventArgs e)

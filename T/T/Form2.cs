@@ -28,7 +28,7 @@ namespace T
         private void button1_Click(object sender, EventArgs e)
         {
 
-            if(textBox1.Text == "" || textBox2.Text == "")
+            if(string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox2.Text))
             {
                 errorProvider1.SetError(button1, "Obje kućice moraju biti ispunjene.");
                 return;
