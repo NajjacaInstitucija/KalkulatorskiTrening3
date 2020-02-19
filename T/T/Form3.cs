@@ -20,11 +20,26 @@ namespace T
         {
             InitializeComponent();
             textBox5.Text = DateTime.Now.ToShortDateString();
+            errorProvider1.BlinkStyle = ErrorBlinkStyle.BlinkIfDifferentError;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if(textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" ||textBox4.Text == "" || textBox5.Text == "" || textBox6.Text == "" )
+            {
+                
+                errorProvider1.SetError(button1, "Jedno od polja je prazno");
+                return;
+            }
+
+            int res;
+            if(!Int32.TryParse(textBox4.Text, out res))
+            {
+                errorProvider1.SetError(textBox4, "Popust mora biti tipa int.");
+                return;
+            }
             //spremanje u bazu
+            errorProvider1.Clear();
             DialogResult uvjet = MessageBox.Show("Ubacivanje tog artikla će utjecati na stanje u dućanu!", "Insert", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
             if (uvjet == DialogResult.Yes)
             {

@@ -19,12 +19,14 @@ namespace T
         OleDbConnection connection = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\stvar\OneDrive\Desktop\T\T\Artikli.mdb");
 
         public bool manager = false;
+        public string imePosluzitelja;
 
         List<Artikl> racun = new List<Artikl>();
-        public Form1(bool isManager)
+        public Form1(bool isManager, string ime)
         {
             InitializeComponent();
             manager = isManager;
+            imePosluzitelja = ime;
 
             if(!manager)
             {
@@ -340,6 +342,10 @@ namespace T
             text += "Ukupno: \t\t";
             text += ukupno + " kn";
 
+            text += Environment.NewLine;
+            text += Environment.NewLine;
+            text += "Ime poslužitelja: " + imePosluzitelja;
+
 
             DialogResult res = MessageBox.Show(text, "Trgovina", MessageBoxButtons.OKCancel, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
 
@@ -406,9 +412,17 @@ namespace T
             Form5 form5 = new Form5();
             form5.ShowDialog();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2();
+            this.Hide();
+            form2.ShowDialog();
+
+        }
     }
 
-    public class Artikl : IComparable<Artikl>
+    public class Artikl : IComparable<Artikl>, IEquatable<Artikl>
     {
         string ime;
         double cijena;
@@ -515,8 +529,9 @@ namespace T
             else return this.kodArtikla + "\t" + this.ime + "\t" + this.cijena + "\t" + this.kolicina + "\t" + this.popust + "%\t" + (this.cijena - ((double)this.popust / 100) * this.cijena) * this.kolicina;
         }
 
-
-
-
+        public bool Equals(Artikl other)
+        {
+            return this.kodArtikla == other.KodArtikla;
+        }
     }
 }

@@ -22,10 +22,20 @@ namespace T
         {
             InitializeComponent();
             textBox2.PasswordChar = '*';
+            errorProvider1.BlinkStyle = ErrorBlinkStyle.NeverBlink;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+            if(textBox1.Text == "" || textBox2.Text == "")
+            {
+                errorProvider1.SetError(button1, "Obje kućice moraju biti ispunjene.");
+                return;
+            }
+
+            errorProvider1.Clear();
+
             OleDbCommand cmd = new OleDbCommand();
 
             cmd.CommandType = CommandType.Text;
@@ -37,16 +47,19 @@ namespace T
             connection2.Open();
             OleDbDataReader reader = cmd.ExecuteReader();
             bool kontrola = false;
+            string ime = "";
             while (reader.Read())
             {
                 kontrola = true;
                 if (reader.GetBoolean(2)) manager = true;
+
+                ime = reader.GetString(0);
                 
             }
             reader.Close();
             connection2.Close();
             
-            form1 = new Form1(manager);
+            form1 = new Form1(manager, ime);
             if (kontrola)
             {
                 form1.Show();
@@ -54,9 +67,10 @@ namespace T
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-
+            Form form6 = new Form6();
+            form6.ShowDialog();
         }
     }
 }

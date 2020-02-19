@@ -18,6 +18,7 @@ namespace T
         public Form5()
         {
             InitializeComponent();
+            errorProvider1.BlinkStyle = ErrorBlinkStyle.NeverBlink;
         }
 
  
@@ -91,6 +92,15 @@ namespace T
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+            if(comboBox1.SelectedIndex < 0 || comboBox2.SelectedIndex < 0)
+            {
+                errorProvider1.SetError(button1, "Barem jedan od comboBoxeva treba biti označen.");
+                return;
+            }
+
+            errorProvider1.Clear();
+
             string uvjet = label4.Text;
 
             DialogResult warning = MessageBox.Show("Ovim ćete ukloniti artikl iz ponude.", "Warning", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
