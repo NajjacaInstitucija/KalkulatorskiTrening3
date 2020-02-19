@@ -22,11 +22,18 @@ namespace T
         public string imePosluzitelja;
 
         List<Artikl> racun = new List<Artikl>();
+        Dictionary<string, int> najtrazenijiArtikli = new Dictionary<string, int>();
+        int ukupanBrojIzadnihRacuna, ukupanBrojProdanihArtikala;
+        double ukupnaZarada, prosječanIznosRacuna;
+        int najtrazenijiArtiklKolicina;
+        string najtrazenijiArtiklIme;
         public Form1(bool isManager, string ime)
         {
             InitializeComponent();
             manager = isManager;
             imePosluzitelja = ime;
+
+            toolStripStatusLabel6.Text = "Trenutni poslužitelj: " + imePosluzitelja;
 
             if(!manager)
             {
@@ -40,6 +47,10 @@ namespace T
         {
             // TODO: This line of code loads data into the 'artikliDataSet2.Artikli' table. You can move, or remove it, as needed.
             this.artikliTableAdapter.Fill(this.artikliDataSet2.Artikli);
+
+            timer1.Enabled = true;
+            timer1.Start();
+            timer1.Interval = 1000;
 
             OleDbCommand cmd = new OleDbCommand();
 
@@ -59,8 +70,6 @@ namespace T
             reader.Close();
             connection.Close();
             
-
-            //comboBox1.Items.Add("nesto");
 
 
         }
@@ -316,6 +325,7 @@ namespace T
 
             }
 
+
             text += "-------------------------------------------------------------------------------";
             text += Environment.NewLine;
             text += Environment.NewLine;
@@ -339,7 +349,7 @@ namespace T
             text += nacinPLacanja;
             text += Environment.NewLine;
             text += Environment.NewLine;
-            text += "Ukupno: \t\t";
+            text += "Ukupno: \t";
             text += ukupno + " kn";
 
             text += Environment.NewLine;
@@ -352,8 +362,41 @@ namespace T
             if(res == DialogResult.OK)
             {
                 //ispisi racun
+
+                ukupanBrojIzadnihRacuna++;
+                ukupnaZarada += ukupno;
+
+                foreach (Artikl a in racun)
+                {
+                    ukupanBrojProdanihArtikala += a.Kolicina;
+                    if (najtrazenijiArtikli.ContainsKey(a.Ime))
+                     najtrazenijiArtikli[a.Ime] += a.Kolicina;
+
+                    else
+                     najtrazenijiArtikli.Add(a.Ime, a.Kolicina);
+                    
+                    
+                }
+
+                prosječanIznosRacuna = ukupnaZarada / ukupanBrojIzadnihRacuna;
+
+                 najtrazenijiArtiklKolicina = najtrazenijiArtikli.Values.Max();
+                 najtrazenijiArtiklIme = najtrazenijiArtikli.Aggregate(
+                    (imeArtikla, imeNajtrazenijegArtikla) =>
+                    imeArtikla.Value > imeNajtrazenijegArtikla.Value ? imeArtikla : imeNajtrazenijegArtikla).Key;
+
+
+
+                toolStripStatusLabel1.Text = "Ukupan broj izdanih računa: " + ukupanBrojIzadnihRacuna.ToString();
+                toolStripStatusLabel2.Text = "Ukupan broj prodanih artikala: " + ukupanBrojProdanihArtikala.ToString();
+                toolStripStatusLabel3.Text = "Najtraženiji artikl: " + najtrazenijiArtiklIme + "(" + najtrazenijiArtiklKolicina.ToString() + ")";
+                toolStripStatusLabel4.Text = "Ukupna zarada: " + ukupnaZarada.ToString();
+                toolStripStatusLabel5.Text = "Prosječan iznos računa: " + prosječanIznosRacuna.ToString();
+
+
                 listBox2.Items.Clear();
                 listBox1.Items.Clear();
+                racun.Clear();
             }
 
 
@@ -375,11 +418,7 @@ namespace T
 
         }
 
-        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
+      
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
@@ -407,6 +446,88 @@ namespace T
             connection.Close();
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+            //postaviti progressbar na 21600 = 6 sati
+            if (toolStripProgressBar1.Value != toolStripProgressBar1.Maximum)
+                toolStripProgressBar1.Value++;
+
+
+            else
+            {
+                Form2 form2 = new Form2();
+
+                timer1.Stop();
+                toolStripProgressBar1.Value = 0;
+                //ovdje ispis svih vrijednosti iz status stripa prilikom odjave i resetirat ih
+
+                string ispis = "";
+                ispis += "Broj izdanih računa: " + ukupanBrojIzadnihRacuna + Environment.NewLine;
+                ispis += "Broj prodanih artikala: " + ukupanBrojProdanihArtikala + Environment.NewLine;
+                ispis += "Najtraženiji artikl: " + najtrazenijiArtiklIme + ", u količini: " + najtrazenijiArtiklKolicina + Environment.NewLine;
+                ispis += "Ukupno zarađeno: " + ukupnaZarada + Environment.NewLine;
+                ispis += "Prosječan iznos računa: " + prosječanIznosRacuna + Environment.NewLine;
+
+                ukupanBrojIzadnihRacuna = 0;
+                ukupanBrojProdanihArtikala = 0;
+                ukupnaZarada = 0;
+                prosječanIznosRacuna = 0;
+                najtrazenijiArtiklKolicina = 0;
+                najtrazenijiArtiklIme = "";
+                racun.Clear();
+                najtrazenijiArtikli.Clear();
+
+                MessageBox.Show(ispis, "Info o sesiji", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                this.Close();
+                form2.ShowDialog();
+            }
+
+        }
+
+        private void Form1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+                contextMenuStrip1.Show(Cursor.Position);
+        }
+
+        private void gotovinaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            radioButton2.Checked = false;
+            radioButton3.Checked = false;
+            radioButton4.Checked = false;
+            if (!radioButton1.Checked)
+                radioButton1.Checked = true;
+        }
+
+        private void cekoviToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            radioButton1.Checked = false;
+            radioButton3.Checked = false;
+            radioButton4.Checked = false;
+            if (!radioButton2.Checked)
+                radioButton2.Checked = true;
+        }
+
+        private void karticaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            radioButton2.Checked = false;
+            radioButton1.Checked = false;
+            radioButton4.Checked = false;
+            if (!radioButton3.Checked)
+                radioButton3.Checked = true;
+        }
+
+        private void bonoviToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            radioButton2.Checked = false;
+            radioButton3.Checked = false;
+            radioButton1.Checked = false;
+            if (!radioButton4.Checked)
+                radioButton4.Checked = true;
+        }
+
         private void button8_Click(object sender, EventArgs e)
         {
             Form5 form5 = new Form5();
@@ -416,10 +537,26 @@ namespace T
         private void button5_Click(object sender, EventArgs e)
         {
             Form2 form2 = new Form2();
-            this.Hide();
+
+            timer1.Stop();
+            toolStripProgressBar1.Value = 0;
+            //ovdje ispis svih vrijednosti iz status stripa prilikom odjave i resetirat ih
+
+            string ispis = "";
+            ispis += "Broj izdanih računa: " + ukupanBrojIzadnihRacuna + Environment.NewLine;
+            ispis += "Broj prodanih artikala: " + ukupanBrojProdanihArtikala + Environment.NewLine;
+            ispis += "Najtraženiji artikl: " + najtrazenijiArtiklIme + ", u količini: " + najtrazenijiArtiklKolicina + Environment.NewLine;
+            ispis += "Ukupno zarađeno: " + ukupnaZarada  + Environment.NewLine;
+            ispis += "Prosječan iznos računa: " + prosječanIznosRacuna  + Environment.NewLine;
+
+            MessageBox.Show(ispis, "Info o sesiji", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            this.Close();
             form2.ShowDialog();
 
         }
+
+        
     }
 
     public class Artikl : IComparable<Artikl>, IEquatable<Artikl>

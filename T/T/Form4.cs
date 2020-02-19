@@ -86,11 +86,11 @@ namespace T
                 connection4.Close();
 
                 if (result == DialogResult.OK)
-                    this.Hide();
+                    this.Close();
 
             }
 
-            else this.Hide();
+            else this.Close();
 
         }
     }

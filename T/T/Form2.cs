@@ -63,7 +63,7 @@ namespace T
             if (kontrola)
             {
                 form1.Show();
-                this.Hide();
+                this.Close();
             }
         }
 

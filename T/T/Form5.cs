@@ -93,7 +93,7 @@ namespace T
         private void button1_Click(object sender, EventArgs e)
         {
 
-            if(comboBox1.SelectedIndex < 0 || comboBox2.SelectedIndex < 0)
+            if(comboBox1.SelectedIndex < 0 && comboBox2.SelectedIndex < 0)
             {
                 errorProvider1.SetError(button1, "Barem jedan od comboBoxeva treba biti označen.");
                 return;
@@ -125,7 +125,7 @@ namespace T
                     DialogResult res = MessageBox.Show("Artikl uklonjen.", "Info", MessageBoxButtons.OK);
 
 
-                    this.Hide();
+                    this.Close();
                 }
 
                 else if (uvjet == "Po roku upotrebe:")
@@ -145,7 +145,7 @@ namespace T
 
                     DialogResult res = MessageBox.Show("Artikl uklonjen.", "Info", MessageBoxButtons.OK);
 
-                    this.Hide();
+                    this.Close();
                 }
 
                 else MessageBox.Show("Morate odabrati nešto.", "Upozorenje", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
@@ -153,7 +153,7 @@ namespace T
                 
             }
 
-            else this.Hide();
+            else this.Close();
         }
     }
 }

@@ -66,11 +66,11 @@ namespace T
                 connection3.Close();
 
                 if (result == DialogResult.OK)
-                    this.Hide();
+                    this.Close();
                 // zatvori formu 3
             }
 
-            else this.Hide();
+            else this.Close();
         }
     }
 }

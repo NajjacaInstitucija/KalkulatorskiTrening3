@@ -19,6 +19,8 @@ namespace T
         {
             InitializeComponent();
             errorProvider1.BlinkStyle = ErrorBlinkStyle.BlinkIfDifferentError;
+            textBox2.PasswordChar = '*';
+            textBox3.PasswordChar = '*';
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -65,7 +67,7 @@ namespace T
             {
                 OleDbCommand cmdInsert = new OleDbCommand();
                 cmdInsert.CommandType = CommandType.Text;
-                cmdInsert.CommandText = "INSERT INTO Zaposlenici (Username, Password, IsManager)" +
+                cmdInsert.CommandText = "INSERT INTO Zaposlenici (Username, Password, IsManager) " +
                     "VALUES (@Username, @Password, @IsManager)";
 
                 cmdInsert.Parameters.AddWithValue("@Username", textBox1.Text);
@@ -78,6 +80,10 @@ namespace T
                 MessageBox.Show("A new member has been successfully added", "Hired", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 connection6.Close();
+
+                this.Close();
+                Form2 form2 = new Form2();
+                form2.Show();
 
             }
 
