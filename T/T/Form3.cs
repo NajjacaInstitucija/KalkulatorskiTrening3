@@ -16,9 +16,12 @@ namespace T
         OleDbConnection connection3 = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\stvar\OneDrive\Desktop\T\T\Artikli.mdb");
 
         //OleDbConnection connection3 = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\student\Desktop\T\T\Artikli.mdb");
-        public Form3()
+        public Form3(Color bc, Font f)
         {
             InitializeComponent();
+
+            this.BackColor = bc;
+            this.Font = f;
             textBox5.Text = DateTime.Now.ToShortDateString();
             errorProvider1.BlinkStyle = ErrorBlinkStyle.BlinkIfDifferentError;
         }
@@ -67,11 +70,36 @@ namespace T
                 connection3.Close();
 
                 if (result == DialogResult.OK)
-                    this.Close();
+                    this.Hide();
                 // zatvori formu 3
             }
 
-            else this.Close();
+            else this.Hide();
+        }
+
+        private void zatvoriToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void bojuPozadineToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult res = colorDialog1.ShowDialog();
+            if (res == DialogResult.OK)
+                this.BackColor = colorDialog1.Color;
+        }
+
+        private void fontToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult res = fontDialog1.ShowDialog();
+            if (res == DialogResult.OK)
+                this.Font = fontDialog1.Font;
+        }
+
+        private void Form3_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+                contextMenuStrip1.Show(Cursor.Position);
         }
     }
 }

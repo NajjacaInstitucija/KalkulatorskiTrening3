@@ -122,7 +122,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(153, 30);
             this.textBox1.TabIndex = 2;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBox1.TextChanged += new System.EventHandler(this.promjenaUpisaImenaArtikla_TextChanged);
             // 
             // textBox2
             // 
@@ -141,7 +141,7 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(187, 395);
             this.listBox1.TabIndex = 5;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.promjenaOznacenogArtikla_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -170,7 +170,7 @@
             this.button1.TabIndex = 10;
             this.button1.Text = "Dodaj na racun";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.dodajNaRacun_Click);
             // 
             // button2
             // 
@@ -181,7 +181,7 @@
             this.button2.TabIndex = 11;
             this.button2.Text = "Izradi racun";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.izradiRacun_Click);
             // 
             // label4
             // 
@@ -222,7 +222,7 @@
             this.button3.TabIndex = 16;
             this.button3.Text = "Check code";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.Click += new System.EventHandler(this.provjeraKoda_Click);
             // 
             // textBox5
             // 
@@ -275,7 +275,7 @@
             this.button4.TabIndex = 20;
             this.button4.Text = "Makni s racuna";
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.button4.Click += new System.EventHandler(this.makniSRacuna_Click);
             // 
             // dataGridView1
             // 
@@ -461,7 +461,7 @@
             this.button5.TabIndex = 23;
             this.button5.Text = "Logout";
             this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.button5.Click += new System.EventHandler(this.logout_Click);
             // 
             // button6
             // 
@@ -473,7 +473,7 @@
             this.button6.TabIndex = 24;
             this.button6.Text = "Dodaj novi artikl";
             this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.button6.Click += new System.EventHandler(this.dodajArtikl_Click);
             // 
             // button7
             // 
@@ -485,7 +485,7 @@
             this.button7.TabIndex = 25;
             this.button7.Text = "Promijeni popust";
             this.button7.UseVisualStyleBackColor = false;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.button7.Click += new System.EventHandler(this.promijeniPopust_Click);
             // 
             // label7
             // 
@@ -517,7 +517,7 @@
             this.button8.TabIndex = 28;
             this.button8.Text = "Izbaci artikl";
             this.button8.UseVisualStyleBackColor = false;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.button8.Click += new System.EventHandler(this.izbrisiArtikl_Click);
             // 
             // statusStrip1
             // 
@@ -532,7 +532,7 @@
             this.toolStripProgressBar1});
             this.statusStrip1.Location = new System.Drawing.Point(0, 937);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1839, 26);
+            this.statusStrip1.Size = new System.Drawing.Size(1903, 26);
             this.statusStrip1.TabIndex = 29;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -569,7 +569,7 @@
             // toolStripStatusLabel6
             // 
             this.toolStripStatusLabel6.Name = "toolStripStatusLabel6";
-            this.toolStripStatusLabel6.Size = new System.Drawing.Size(860, 20);
+            this.toolStripStatusLabel6.Size = new System.Drawing.Size(924, 20);
             this.toolStripStatusLabel6.Spring = true;
             this.toolStripStatusLabel6.Text = "Trenutni posljužitelj: ";
             // 
@@ -612,21 +612,21 @@
             this.dodajNoviArtiklToolStripMenuItem.Name = "dodajNoviArtiklToolStripMenuItem";
             this.dodajNoviArtiklToolStripMenuItem.Size = new System.Drawing.Size(238, 26);
             this.dodajNoviArtiklToolStripMenuItem.Text = "Dodaj novi artikl";
-            this.dodajNoviArtiklToolStripMenuItem.Click += new System.EventHandler(this.button6_Click);
+            this.dodajNoviArtiklToolStripMenuItem.Click += new System.EventHandler(this.dodajArtikl_Click);
             // 
             // promijeniPopustToolStripMenuItem
             // 
             this.promijeniPopustToolStripMenuItem.Name = "promijeniPopustToolStripMenuItem";
             this.promijeniPopustToolStripMenuItem.Size = new System.Drawing.Size(238, 26);
             this.promijeniPopustToolStripMenuItem.Text = "Promijeni popust";
-            this.promijeniPopustToolStripMenuItem.Click += new System.EventHandler(this.button7_Click);
+            this.promijeniPopustToolStripMenuItem.Click += new System.EventHandler(this.promijeniPopust_Click);
             // 
             // izbaciArtiklIzPonudeToolStripMenuItem
             // 
             this.izbaciArtiklIzPonudeToolStripMenuItem.Name = "izbaciArtiklIzPonudeToolStripMenuItem";
             this.izbaciArtiklIzPonudeToolStripMenuItem.Size = new System.Drawing.Size(238, 26);
             this.izbaciArtiklIzPonudeToolStripMenuItem.Text = "Izbaci artikl iz ponude";
-            this.izbaciArtiklIzPonudeToolStripMenuItem.Click += new System.EventHandler(this.button8_Click);
+            this.izbaciArtiklIzPonudeToolStripMenuItem.Click += new System.EventHandler(this.izbrisiArtikl_Click);
             // 
             // načinPlaćanjaToolStripMenuItem
             // 
@@ -695,21 +695,21 @@
             this.izradiRačunToolStripMenuItem.Name = "izradiRačunToolStripMenuItem";
             this.izradiRačunToolStripMenuItem.Size = new System.Drawing.Size(176, 24);
             this.izradiRačunToolStripMenuItem.Text = "Izradi račun";
-            this.izradiRačunToolStripMenuItem.Click += new System.EventHandler(this.button2_Click);
+            this.izradiRačunToolStripMenuItem.Click += new System.EventHandler(this.izradiRacun_Click);
             // 
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
             this.logoutToolStripMenuItem.Size = new System.Drawing.Size(176, 24);
             this.logoutToolStripMenuItem.Text = "Logout";
-            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.button5_Click);
+            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logout_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1860, 959);
+            this.ClientSize = new System.Drawing.Size(1924, 959);
             this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.button8);

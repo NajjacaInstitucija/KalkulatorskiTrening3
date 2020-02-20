@@ -18,10 +18,12 @@ namespace T
 
         string item = "Prazno";
 
-        public Form4()
+        public Form4(Color bc, Font f)
         {
             InitializeComponent();
 
+            this.Font = f;
+            this.BackColor = bc;
             listBox1.Items.Clear();
 
             
@@ -86,12 +88,37 @@ namespace T
                 connection4.Close();
 
                 if (result == DialogResult.OK)
-                    this.Close();
+                    this.Hide();
 
             }
 
-            else this.Close();
+            else this.Hide();
 
+        }
+
+        private void zatvoriToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+        private void bojuPozadineToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult res = colorDialog1.ShowDialog();
+            if (res == DialogResult.OK)
+                this.BackColor = colorDialog1.Color;
+        }
+
+        private void fontToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult res = fontDialog1.ShowDialog();
+            if (res == DialogResult.OK)
+                this.Font = fontDialog1.Font;
+        }
+
+        private void Form4_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+                contextMenuStrip1.Show(Cursor.Position);
         }
     }
 }

@@ -15,9 +15,12 @@ namespace T
     {
         OleDbConnection connection5 = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\stvar\OneDrive\Desktop\T\T\Artikli.mdb");
 
-        public Form5()
+        public Form5(Color bc, Font f)
         {
             InitializeComponent();
+
+            this.BackColor = bc;
+            this.Font = f;
             errorProvider1.BlinkStyle = ErrorBlinkStyle.NeverBlink;
         }
 
@@ -125,7 +128,7 @@ namespace T
                     DialogResult res = MessageBox.Show("Artikl uklonjen.", "Info", MessageBoxButtons.OK);
 
 
-                    this.Close();
+                    this.Hide();
                 }
 
                 else if (uvjet == "Po roku upotrebe:")
@@ -145,7 +148,7 @@ namespace T
 
                     DialogResult res = MessageBox.Show("Artikl uklonjen.", "Info", MessageBoxButtons.OK);
 
-                    this.Close();
+                    this.Hide();
                 }
 
                 else MessageBox.Show("Morate odabrati nešto.", "Upozorenje", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
@@ -153,7 +156,33 @@ namespace T
                 
             }
 
-            else this.Close();
+            else this.Hide();
+        }
+
+        private void zatvoriToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+
+        private void bojuPozadineToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult res = colorDialog1.ShowDialog();
+            if (res == DialogResult.OK)
+                this.BackColor = colorDialog1.Color;
+        }
+
+        private void fontToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult res = fontDialog1.ShowDialog();
+            if (res == DialogResult.OK)
+                this.Font = fontDialog1.Font;
+        }
+
+        private void Form5_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+                contextMenuStrip1.Show(Cursor.Position);
         }
     }
 }

@@ -18,14 +18,17 @@ namespace T
 
         public Form1 form1;
         public bool manager = false;
-        public Form2()
+        public Form2(Color bc, Font f)
         {
             InitializeComponent();
+
+            this.Font = f;
+            this.BackColor = bc;
             textBox2.PasswordChar = '*';
             errorProvider1.BlinkStyle = ErrorBlinkStyle.NeverBlink;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void login_Click(object sender, EventArgs e)
         {
 
             if(string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox2.Text))
@@ -59,18 +62,39 @@ namespace T
             reader.Close();
             connection2.Close();
             
-            form1 = new Form1(manager, ime);
+            form1 = new Form1(manager, ime, this.BackColor, this.Font);
             if (kontrola)
             {
                 form1.Show();
-                this.Close();
+                this.Hide();
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void registracija_Click(object sender, EventArgs e)
         {
-            Form form6 = new Form6();
+            Form form6 = new Form6(this.BackColor, this.Font);
             form6.ShowDialog();
+        }
+
+
+        private void bojuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult res = colorDialog1.ShowDialog();
+            if (res == DialogResult.OK)
+                this.BackColor = colorDialog1.Color;
+        }
+
+        private void fontToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult res = fontDialog1.ShowDialog();
+            if (res == DialogResult.OK)
+                this.Font = fontDialog1.Font;
+        }
+
+        private void Form2_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+                contextMenuStrip1.Show(Cursor.Position);
         }
     }
 }

@@ -27,11 +27,13 @@ namespace T
         double ukupnaZarada, prosječanIznosRacuna;
         int najtrazenijiArtiklKolicina;
         string najtrazenijiArtiklIme;
-        public Form1(bool isManager, string ime)
+        public Form1(bool isManager, string ime, Color bc, Font f)
         {
             InitializeComponent();
             manager = isManager;
             imePosluzitelja = ime;
+            this.Font = f;
+            this.BackColor = bc;
 
             toolStripStatusLabel6.Text = "Trenutni poslužitelj: " + imePosluzitelja;
 
@@ -40,6 +42,10 @@ namespace T
                 button6.Visible = false;
                 button7.Visible = false;
                 button8.Visible = false;
+                upravljanjeToolStripMenuItem.Visible = false;
+                dodajNoviArtiklToolStripMenuItem.Visible = false;
+                izbaciArtiklIzPonudeToolStripMenuItem.Visible = false;
+                promijeniPopustToolStripMenuItem.Visible = false;
             }
         }
 
@@ -74,7 +80,7 @@ namespace T
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void promjenaUpisaImenaArtikla_TextChanged(object sender, EventArgs e)
         {
            
             listBox1.Items.Clear();
@@ -131,7 +137,7 @@ namespace T
 
 
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void promjenaOznacenogArtikla_SelectedIndexChanged(object sender, EventArgs e)
         {
            
 
@@ -177,7 +183,7 @@ namespace T
         }
 
         //provjera postoji li artikl s uspisanim kodom
-        private void button3_Click(object sender, EventArgs e)
+        private void provjeraKoda_Click(object sender, EventArgs e)
         {
             OleDbCommand cmd = new OleDbCommand();
 
@@ -208,7 +214,7 @@ namespace T
         }
 
         //dodavanje artikla u kosaricu
-        private void button1_Click(object sender, EventArgs e)
+        private void dodajNaRacun_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(textBox2.Text))
             {
@@ -278,7 +284,7 @@ namespace T
         }
 
         //brisanje artikla s racuna
-        private void button4_Click(object sender, EventArgs e)
+        private void makniSRacuna_Click(object sender, EventArgs e)
         {
             DialogResult res = MessageBox.Show("Želite li sigurno maknuti označeni artikl?", "Brisanje artikla s računa", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
 
@@ -309,7 +315,7 @@ namespace T
         }
 
         // ispis racuna
-        private void button2_Click(object sender, EventArgs e)
+        private void izradiRacun_Click(object sender, EventArgs e)
         {
             string text = "Kod artikla\t" + "Naziv\t\t" + "Cijena\t" + "Kolicina\t" + "Popust\t" + "Iznos";
             text += Environment.NewLine;
@@ -405,15 +411,15 @@ namespace T
 
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void dodajArtikl_Click(object sender, EventArgs e)
         {
-            Form3 form3 = new Form3();
+            Form3 form3 = new Form3(this.BackColor, this.Font);
             form3.ShowDialog();
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void promijeniPopust_Click(object sender, EventArgs e)
         {
-            Form4 form4 = new Form4();
+            Form4 form4 = new Form4(this.BackColor, this.Font);
             form4.ShowDialog();
 
         }
@@ -456,7 +462,7 @@ namespace T
 
             else
             {
-                Form2 form2 = new Form2();
+                Form2 form2 = new Form2(this.BackColor, this.Font);
 
                 timer1.Stop();
                 toolStripProgressBar1.Value = 0;
@@ -480,7 +486,7 @@ namespace T
 
                 MessageBox.Show(ispis, "Info o sesiji", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                this.Close();
+                this.Hide();
                 form2.ShowDialog();
             }
 
@@ -542,15 +548,15 @@ namespace T
                 this.BackColor = colorDialog1.Color;
         }
 
-        private void button8_Click(object sender, EventArgs e)
+        private void izbrisiArtikl_Click(object sender, EventArgs e)
         {
-            Form5 form5 = new Form5();
+            Form5 form5 = new Form5(this.BackColor, this.Font);
             form5.ShowDialog();
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void logout_Click(object sender, EventArgs e)
         {
-            Form2 form2 = new Form2();
+            Form2 form2 = new Form2(this.BackColor, this.Font);
 
             timer1.Stop();
             toolStripProgressBar1.Value = 0;
@@ -565,7 +571,7 @@ namespace T
 
             MessageBox.Show(ispis, "Info o sesiji", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            this.Close();
+            this.Hide();
             form2.ShowDialog();
 
         }

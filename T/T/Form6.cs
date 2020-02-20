@@ -27,9 +27,12 @@ namespace T
             }
         }
 
-        public Form6()
+        public Form6(Color bc, Font f)
         {
             InitializeComponent();
+
+            this.BackColor = bc;
+            this.Font = f;
             errorProvider1.BlinkStyle = ErrorBlinkStyle.BlinkIfDifferentError;
             textBox2.PasswordChar = '*';
             textBox3.PasswordChar = '*';
@@ -56,7 +59,7 @@ namespace T
 
             OleDbCommand cmd = new OleDbCommand();
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "Select Username from Zaposlenici";
+            cmd.CommandText = "Select * from Zaposlenici";
 
             cmd.Connection = connection6;
             connection6.Open();
@@ -64,7 +67,8 @@ namespace T
             bool kont = false;
             while(reader.Read())
             {
-                if(reader.GetString(0) == textBox1.Text)
+               // MessageBox.Show(reader.GetString(1).ToString(), reader.GetBoolean(3).ToString());
+                if(reader.GetString(1) == textBox1.Text)
                 {
                     kont = true;
                     errorProvider1.SetError(textBox1, "User već postoji");
@@ -78,6 +82,8 @@ namespace T
             
             else
             {
+                
+
                 OleDbCommand cmdInsert = new OleDbCommand();
                 cmdInsert.CommandType = CommandType.Text;
                 cmdInsert.CommandText = "INSERT INTO Zaposlenici (Username, Password, IsManager)" +
@@ -85,7 +91,7 @@ namespace T
 
                 cmdInsert.Parameters.AddWithValue("@Username", textBox1.Text);
                 cmdInsert.Parameters.AddWithValue("@Password", encryptPassword(textBox2.Text));
-                cmdInsert.Parameters.AddWithValue("@IsManager", checkBox1.Checked);
+                cmdInsert.Parameters.AddWithValue("@IsManager", checkBox1.CheckState);
                 cmdInsert.Connection = connection6;
 
 
@@ -95,8 +101,8 @@ namespace T
 
                 connection6.Close();
 
-                this.Close();
-                Form2 form2 = new Form2();
+                this.Hide();
+                Form2 form2 = new Form2(this.BackColor, this.Font);
                 form2.Show();
 
             }
@@ -105,6 +111,33 @@ namespace T
 
 
             
+        }
+
+        private void zatvoriToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide(); 
+            Form2 form2 = new Form2(this.BackColor, this.Font);
+            form2.Show();
+        }
+
+        private void bojuPozadineToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult res = colorDialog1.ShowDialog();
+            if (res == DialogResult.OK)
+                this.BackColor = colorDialog1.Color;
+        }
+
+        private void fontToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult res = fontDialog1.ShowDialog();
+            if (res == DialogResult.OK)
+                this.Font = fontDialog1.Font;
+        }
+
+        private void Form6_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+                contextMenuStrip1.Show(Cursor.Position);
         }
     }
 }

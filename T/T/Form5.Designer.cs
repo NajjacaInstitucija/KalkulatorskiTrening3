@@ -38,7 +38,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.fontDialog1 = new System.Windows.Forms.FontDialog();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.promijeniToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bojuPozadineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fontToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.zatvoriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // comboBox2
@@ -113,12 +121,52 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.promijeniToolStripMenuItem,
+            this.zatvoriToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(142, 52);
+            // 
+            // promijeniToolStripMenuItem
+            // 
+            this.promijeniToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bojuPozadineToolStripMenuItem,
+            this.fontToolStripMenuItem});
+            this.promijeniToolStripMenuItem.Name = "promijeniToolStripMenuItem";
+            this.promijeniToolStripMenuItem.Size = new System.Drawing.Size(141, 24);
+            this.promijeniToolStripMenuItem.Text = "Promijeni";
+            // 
+            // bojuPozadineToolStripMenuItem
+            // 
+            this.bojuPozadineToolStripMenuItem.Name = "bojuPozadineToolStripMenuItem";
+            this.bojuPozadineToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.bojuPozadineToolStripMenuItem.Text = "Boju pozadine";
+            this.bojuPozadineToolStripMenuItem.Click += new System.EventHandler(this.bojuPozadineToolStripMenuItem_Click);
+            // 
+            // fontToolStripMenuItem
+            // 
+            this.fontToolStripMenuItem.Name = "fontToolStripMenuItem";
+            this.fontToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.fontToolStripMenuItem.Text = "Font";
+            this.fontToolStripMenuItem.Click += new System.EventHandler(this.fontToolStripMenuItem_Click);
+            // 
+            // zatvoriToolStripMenuItem
+            // 
+            this.zatvoriToolStripMenuItem.Name = "zatvoriToolStripMenuItem";
+            this.zatvoriToolStripMenuItem.Size = new System.Drawing.Size(141, 24);
+            this.zatvoriToolStripMenuItem.Text = "Zatvori";
+            this.zatvoriToolStripMenuItem.Click += new System.EventHandler(this.zatvoriToolStripMenuItem_Click);
+            // 
             // Form5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(483, 615);
+            this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.comboBox1);
@@ -132,7 +180,9 @@
             this.Name = "Form5";
             this.Text = "Form5";
             this.Load += new System.EventHandler(this.Form5_Load);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Form5_MouseClick);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -148,5 +198,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.FontDialog fontDialog1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem promijeniToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bojuPozadineToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fontToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem zatvoriToolStripMenuItem;
     }
 }

@@ -37,7 +37,15 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.promijeniToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bojuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fontToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registracijaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.fontDialog1 = new System.Windows.Forms.FontDialog();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -51,7 +59,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "Login";
             this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.login_Click);
             // 
             // label1
             // 
@@ -80,7 +88,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(296, 30);
             this.textBox1.TabIndex = 3;
-           
             // 
             // textBox2
             // 
@@ -101,11 +108,50 @@
             this.button2.TabIndex = 5;
             this.button2.Text = "Registriraj";
             this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.registracija_Click);
             // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.promijeniToolStripMenuItem,
+            this.registracijaToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(156, 52);
+            // 
+            // promijeniToolStripMenuItem
+            // 
+            this.promijeniToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bojuToolStripMenuItem,
+            this.fontToolStripMenuItem});
+            this.promijeniToolStripMenuItem.Name = "promijeniToolStripMenuItem";
+            this.promijeniToolStripMenuItem.Size = new System.Drawing.Size(155, 24);
+            this.promijeniToolStripMenuItem.Text = "Promijeni";
+            // 
+            // bojuToolStripMenuItem
+            // 
+            this.bojuToolStripMenuItem.Name = "bojuToolStripMenuItem";
+            this.bojuToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.bojuToolStripMenuItem.Text = "Boju Pozadine";
+            this.bojuToolStripMenuItem.Click += new System.EventHandler(this.bojuToolStripMenuItem_Click);
+            // 
+            // fontToolStripMenuItem
+            // 
+            this.fontToolStripMenuItem.Name = "fontToolStripMenuItem";
+            this.fontToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.fontToolStripMenuItem.Text = "Font";
+            this.fontToolStripMenuItem.Click += new System.EventHandler(this.fontToolStripMenuItem_Click);
+            // 
+            // registracijaToolStripMenuItem
+            // 
+            this.registracijaToolStripMenuItem.Name = "registracijaToolStripMenuItem";
+            this.registracijaToolStripMenuItem.Size = new System.Drawing.Size(155, 24);
+            this.registracijaToolStripMenuItem.Text = "Registracija";
+            this.registracijaToolStripMenuItem.Click += new System.EventHandler(this.registracija_Click);
             // 
             // Form2
             // 
@@ -114,6 +160,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(609, 519);
+            this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.button2);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
@@ -125,7 +172,9 @@
             this.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Name = "Form2";
             this.Text = "Form2";
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Form2_MouseClick);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -140,5 +189,12 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem promijeniToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bojuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fontToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem registracijaToolStripMenuItem;
+        private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.FontDialog fontDialog1;
     }
 }
