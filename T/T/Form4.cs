@@ -120,5 +120,7 @@ namespace T
             if (e.Button == MouseButtons.Right)
                 contextMenuStrip1.Show(Cursor.Position);
         }
+
+     
     }
 }

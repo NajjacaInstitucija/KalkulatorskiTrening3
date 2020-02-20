@@ -36,6 +36,9 @@ namespace T
             errorProvider1.BlinkStyle = ErrorBlinkStyle.BlinkIfDifferentError;
             textBox2.PasswordChar = '*';
             textBox3.PasswordChar = '*';
+            toolTip1.SetToolTip(textBox2, "Password je zaštićen znakom *");
+            toolTip1.SetToolTip(textBox3, "Ovaj password mora biti isti kao i onaj iznad");
+            toolTip1.ToolTipIcon = ToolTipIcon.Warning;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -139,5 +142,22 @@ namespace T
             if (e.Button == MouseButtons.Right)
                 contextMenuStrip1.Show(Cursor.Position);
         }
+
+        private void tb_MouseHover(object sender, EventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+            if (tb == null) return;
+            string text = toolTip1.GetToolTip(tb);
+            if (!string.IsNullOrEmpty(text))
+                toolTip1.Show(text, tb, tb.PointToClient(new Point(Cursor.Position.X+5, Cursor.Position.Y)));
+        }
+        private void tb_MouseLeave(object sender, EventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+            if (tb == null) return;
+            toolTip1.Hide(tb);
+        }
+
+      
     }
 }

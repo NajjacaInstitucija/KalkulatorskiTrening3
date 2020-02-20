@@ -53,6 +53,7 @@
             this.bojuPozadineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fontToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zatvoriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -142,6 +143,8 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(255, 30);
             this.textBox2.TabIndex = 8;
+            this.textBox2.MouseLeave += new System.EventHandler(this.tb_MouseLeave);
+            this.textBox2.MouseHover += new System.EventHandler(this.tb_MouseHover);
             // 
             // textBox3
             // 
@@ -150,6 +153,8 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(255, 30);
             this.textBox3.TabIndex = 9;
+            this.textBox3.MouseLeave += new System.EventHandler(this.tb_MouseLeave);
+            this.textBox3.MouseHover += new System.EventHandler(this.kategorija_MouseHover);
             // 
             // textBox4
             // 
@@ -158,6 +163,8 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(255, 30);
             this.textBox4.TabIndex = 10;
+            this.textBox4.MouseLeave += new System.EventHandler(this.tb_MouseLeave);
+            this.textBox4.MouseHover += new System.EventHandler(this.tb_MouseHover);
             // 
             // textBox5
             // 
@@ -166,6 +173,8 @@
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(255, 30);
             this.textBox5.TabIndex = 11;
+            this.textBox5.MouseLeave += new System.EventHandler(this.tb_MouseLeave);
+            this.textBox5.MouseHover += new System.EventHandler(this.tb_MouseHover);
             // 
             // textBox6
             // 
@@ -221,14 +230,14 @@
             // bojuPozadineToolStripMenuItem
             // 
             this.bojuPozadineToolStripMenuItem.Name = "bojuPozadineToolStripMenuItem";
-            this.bojuPozadineToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.bojuPozadineToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
             this.bojuPozadineToolStripMenuItem.Text = "Boju pozadine";
             this.bojuPozadineToolStripMenuItem.Click += new System.EventHandler(this.bojuPozadineToolStripMenuItem_Click);
             // 
             // fontToolStripMenuItem
             // 
             this.fontToolStripMenuItem.Name = "fontToolStripMenuItem";
-            this.fontToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.fontToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
             this.fontToolStripMenuItem.Text = "Font";
             this.fontToolStripMenuItem.Click += new System.EventHandler(this.fontToolStripMenuItem_Click);
             // 
@@ -300,5 +309,6 @@
         private System.Windows.Forms.ToolStripMenuItem bojuPozadineToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fontToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem zatvoriToolStripMenuItem;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

@@ -36,12 +36,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.promijeniToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bojuPozadineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fontToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zatvoriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.fontDialog1 = new System.Windows.Forms.FontDialog();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -118,14 +118,14 @@
             // bojuPozadineToolStripMenuItem
             // 
             this.bojuPozadineToolStripMenuItem.Name = "bojuPozadineToolStripMenuItem";
-            this.bojuPozadineToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.bojuPozadineToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
             this.bojuPozadineToolStripMenuItem.Text = "Boju pozadine";
             this.bojuPozadineToolStripMenuItem.Click += new System.EventHandler(this.bojuPozadineToolStripMenuItem_Click);
             // 
             // fontToolStripMenuItem
             // 
             this.fontToolStripMenuItem.Name = "fontToolStripMenuItem";
-            this.fontToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.fontToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
             this.fontToolStripMenuItem.Text = "Font";
             this.fontToolStripMenuItem.Click += new System.EventHandler(this.fontToolStripMenuItem_Click);
             // 

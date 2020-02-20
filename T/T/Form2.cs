@@ -26,6 +26,9 @@ namespace T
             this.BackColor = bc;
             textBox2.PasswordChar = '*';
             errorProvider1.BlinkStyle = ErrorBlinkStyle.NeverBlink;
+
+            toolTip1.SetToolTip(textBox1, "Ovdje upisujte username koji ste odabrali za sluzenje aplikacijom.");
+            toolTip1.SetToolTip(textBox2, "Password ce biti prikriven iz sigurnosnih razloga.");
         }
 
         private void login_Click(object sender, EventArgs e)
@@ -95,6 +98,21 @@ namespace T
         {
             if (e.Button == MouseButtons.Right)
                 contextMenuStrip1.Show(Cursor.Position);
+        }
+
+        private void tb_MouseHover(object sender, EventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+            if (tb == null) return;
+            string text = toolTip1.GetToolTip(tb);
+            if (!string.IsNullOrEmpty(text))
+                toolTip1.Show(text, tb, tb.PointToClient(new Point(Cursor.Position.X + 5, Cursor.Position.Y)));
+        }
+        private void tb_MouseLeave(object sender, EventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+            if (tb == null) return;
+            toolTip1.Hide(tb);
         }
     }
 }

@@ -40,12 +40,13 @@
             this.button1 = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.promijeniToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bojuPozadineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fontToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zatvoriToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.fontDialog1 = new System.Windows.Forms.FontDialog();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -74,6 +75,8 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(201, 30);
             this.textBox2.TabIndex = 3;
+            this.textBox2.MouseLeave += new System.EventHandler(this.tb_MouseLeave);
+            this.textBox2.MouseHover += new System.EventHandler(this.tb_MouseHover);
             // 
             // label2
             // 
@@ -91,6 +94,8 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(201, 30);
             this.textBox3.TabIndex = 5;
+            this.textBox3.MouseLeave += new System.EventHandler(this.tb_MouseLeave);
+            this.textBox3.MouseHover += new System.EventHandler(this.tb_MouseHover);
             // 
             // label3
             // 
@@ -116,7 +121,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.RoyalBlue;
             this.button1.Font = new System.Drawing.Font("Segoe Print", 19.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(28, 358);
+            this.button1.Location = new System.Drawing.Point(41, 358);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(314, 111);
@@ -150,14 +155,14 @@
             // bojuPozadineToolStripMenuItem
             // 
             this.bojuPozadineToolStripMenuItem.Name = "bojuPozadineToolStripMenuItem";
-            this.bojuPozadineToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.bojuPozadineToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
             this.bojuPozadineToolStripMenuItem.Text = "Boju pozadine";
             this.bojuPozadineToolStripMenuItem.Click += new System.EventHandler(this.bojuPozadineToolStripMenuItem_Click);
             // 
             // fontToolStripMenuItem
             // 
             this.fontToolStripMenuItem.Name = "fontToolStripMenuItem";
-            this.fontToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.fontToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
             this.fontToolStripMenuItem.Text = "Font";
             this.fontToolStripMenuItem.Click += new System.EventHandler(this.fontToolStripMenuItem_Click);
             // 
@@ -214,5 +219,6 @@
         private System.Windows.Forms.ToolStripMenuItem zatvoriToolStripMenuItem;
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.FontDialog fontDialog1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

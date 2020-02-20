@@ -44,6 +44,7 @@
             this.registracijaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -88,6 +89,8 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(296, 30);
             this.textBox1.TabIndex = 3;
+            this.textBox1.MouseLeave += new System.EventHandler(this.tb_MouseLeave);
+            this.textBox1.MouseHover += new System.EventHandler(this.tb_MouseHover);
             // 
             // textBox2
             // 
@@ -96,6 +99,8 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(296, 30);
             this.textBox2.TabIndex = 4;
+            this.textBox2.MouseLeave += new System.EventHandler(this.tb_MouseLeave);
+            this.textBox2.MouseHover += new System.EventHandler(this.tb_MouseHover);
             // 
             // button2
             // 
@@ -135,14 +140,14 @@
             // bojuToolStripMenuItem
             // 
             this.bojuToolStripMenuItem.Name = "bojuToolStripMenuItem";
-            this.bojuToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.bojuToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
             this.bojuToolStripMenuItem.Text = "Boju Pozadine";
             this.bojuToolStripMenuItem.Click += new System.EventHandler(this.bojuToolStripMenuItem_Click);
             // 
             // fontToolStripMenuItem
             // 
             this.fontToolStripMenuItem.Name = "fontToolStripMenuItem";
-            this.fontToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.fontToolStripMenuItem.Size = new System.Drawing.Size(186, 26);
             this.fontToolStripMenuItem.Text = "Font";
             this.fontToolStripMenuItem.Click += new System.EventHandler(this.fontToolStripMenuItem_Click);
             // 
@@ -196,5 +201,6 @@
         private System.Windows.Forms.ToolStripMenuItem registracijaToolStripMenuItem;
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.FontDialog fontDialog1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

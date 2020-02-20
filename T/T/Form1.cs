@@ -34,7 +34,8 @@ namespace T
             imePosluzitelja = ime;
             this.Font = f;
             this.BackColor = bc;
-
+            textBox2.Enabled = false;
+            textBox3.Enabled = false;
             toolStripStatusLabel6.Text = "Trenutni poslužitelj: " + imePosluzitelja;
 
             if(!manager)

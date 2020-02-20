@@ -24,6 +24,11 @@ namespace T
             this.Font = f;
             textBox5.Text = DateTime.Now.ToShortDateString();
             errorProvider1.BlinkStyle = ErrorBlinkStyle.BlinkIfDifferentError;
+
+            toolTip1.SetToolTip(textBox2, "Cijena mora biti tipa double");
+            toolTip1.SetToolTip(textBox4, "Popust mora biti tipa int");
+            toolTip1.SetToolTip(textBox5, "Datum mora biti u prikladnom formatu");
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -100,6 +105,59 @@ namespace T
         {
             if (e.Button == MouseButtons.Right)
                 contextMenuStrip1.Show(Cursor.Position);
+        }
+
+        private void tb_MouseHover(object sender, EventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+            if (tb == null) return;
+            string text = toolTip1.GetToolTip(tb);
+            if (!string.IsNullOrEmpty(text))
+                toolTip1.Show(text, tb, tb.PointToClient(new Point(Cursor.Position.X + 5, Cursor.Position.Y)));
+        }
+        private void tb_MouseLeave(object sender, EventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+            if (tb == null) return;
+            toolTip1.Hide(tb);
+        }
+
+        private void kategorija_MouseHover(object sender, EventArgs e)
+        {
+            string kategorijeString = "Dosadasnje kategorije: ";
+            List<string> kategorije = new List<string>();
+
+            OleDbCommand cmd = new OleDbCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "Select Kategorija from Artikli";
+
+            cmd.Connection = connection3;
+            connection3.Open();
+
+            OleDbDataReader reader = cmd.ExecuteReader();
+            while(reader.Read())
+            {
+                if (!kategorije.Contains(reader.GetString(0)))
+                    kategorije.Add(reader.GetString(0));
+            }
+            reader.Close();
+            connection3.Close();
+
+            int i = 0;
+            foreach (string k in kategorije)
+            {
+                if (i < (kategorije.Count-1))
+                    kategorijeString += (k + ", ");
+
+                else
+                    kategorijeString += (k + ".");
+
+                i++;
+                
+            }
+
+            toolTip1.SetToolTip(textBox3, kategorijeString);
+
         }
     }
 }

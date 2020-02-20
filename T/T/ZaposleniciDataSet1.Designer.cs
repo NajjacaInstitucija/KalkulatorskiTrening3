@@ -20,9 +20,9 @@ namespace T {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("ZaposleniciDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("ZaposleniciDataSet1")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class ZaposleniciDataSet : global::System.Data.DataSet {
+    public partial class ZaposleniciDataSet1 : global::System.Data.DataSet {
         
         private ZaposleniciDataTable tableZaposlenici;
         
@@ -30,7 +30,7 @@ namespace T {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public ZaposleniciDataSet() {
+        public ZaposleniciDataSet1() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace T {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected ZaposleniciDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected ZaposleniciDataSet1(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -127,7 +127,7 @@ namespace T {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            ZaposleniciDataSet cln = ((ZaposleniciDataSet)(base.Clone()));
+            ZaposleniciDataSet1 cln = ((ZaposleniciDataSet1)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -199,9 +199,9 @@ namespace T {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "ZaposleniciDataSet";
+            this.DataSetName = "ZaposleniciDataSet1";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/ZaposleniciDataSet.xsd";
+            this.Namespace = "http://tempuri.org/ZaposleniciDataSet1.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableZaposlenici = new ZaposleniciDataTable();
@@ -225,7 +225,7 @@ namespace T {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            ZaposleniciDataSet ds = new ZaposleniciDataSet();
+            ZaposleniciDataSet1 ds = new ZaposleniciDataSet1();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -518,7 +518,7 @@ namespace T {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                ZaposleniciDataSet ds = new ZaposleniciDataSet();
+                ZaposleniciDataSet1 ds = new ZaposleniciDataSet1();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -722,7 +722,7 @@ namespace T {
         }
     }
 }
-namespace T.ZaposleniciDataSetTableAdapters {
+namespace T.ZaposleniciDataSet1TableAdapters {
     
     
     /// <summary>
@@ -891,7 +891,7 @@ namespace T.ZaposleniciDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::T.Properties.Settings.Default.ZaposleniciConnectionString;
+            this._connection.ConnectionString = global::T.Properties.Settings.Default.ZaposleniciConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -908,7 +908,7 @@ namespace T.ZaposleniciDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(ZaposleniciDataSet.ZaposleniciDataTable dataTable) {
+        public virtual int Fill(ZaposleniciDataSet1.ZaposleniciDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -921,9 +921,9 @@ namespace T.ZaposleniciDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual ZaposleniciDataSet.ZaposleniciDataTable GetData() {
+        public virtual ZaposleniciDataSet1.ZaposleniciDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            ZaposleniciDataSet.ZaposleniciDataTable dataTable = new ZaposleniciDataSet.ZaposleniciDataTable();
+            ZaposleniciDataSet1.ZaposleniciDataTable dataTable = new ZaposleniciDataSet1.ZaposleniciDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -931,14 +931,14 @@ namespace T.ZaposleniciDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(ZaposleniciDataSet.ZaposleniciDataTable dataTable) {
+        public virtual int Update(ZaposleniciDataSet1.ZaposleniciDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(ZaposleniciDataSet dataSet) {
+        public virtual int Update(ZaposleniciDataSet1 dataSet) {
             return this.Adapter.Update(dataSet, "Zaposlenici");
         }
         
@@ -1176,7 +1176,7 @@ namespace T.ZaposleniciDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateUpdatedRows(ZaposleniciDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(ZaposleniciDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._zaposleniciTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Zaposlenici.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
@@ -1195,7 +1195,7 @@ namespace T.ZaposleniciDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateInsertedRows(ZaposleniciDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(ZaposleniciDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._zaposleniciTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Zaposlenici.Select(null, null, global::System.Data.DataViewRowState.Added);
@@ -1213,7 +1213,7 @@ namespace T.ZaposleniciDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateDeletedRows(ZaposleniciDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(ZaposleniciDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._zaposleniciTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Zaposlenici.Select(null, null, global::System.Data.DataViewRowState.Deleted);
@@ -1255,7 +1255,7 @@ namespace T.ZaposleniciDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public virtual int UpdateAll(ZaposleniciDataSet dataSet) {
+        public virtual int UpdateAll(ZaposleniciDataSet1 dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
