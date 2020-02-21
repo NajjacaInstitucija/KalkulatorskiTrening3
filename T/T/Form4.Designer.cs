@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form4));
-            this.button1 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.Spremi = new System.Windows.Forms.Button();
+            this.KodoviArtikala = new System.Windows.Forms.ListBox();
+            this.popustNUD = new System.Windows.Forms.NumericUpDown();
+            this.popustLabel = new System.Windows.Forms.Label();
+            this.imeSelektiranogLabel = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.promijeniToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bojuPozadineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,61 +43,61 @@
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popustNUD)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // Spremi
             // 
-            this.button1.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.button1.Location = new System.Drawing.Point(75, 634);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(203, 76);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Spremi";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.Spremi.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.Spremi.Location = new System.Drawing.Point(75, 634);
+            this.Spremi.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.Spremi.Name = "Spremi";
+            this.Spremi.Size = new System.Drawing.Size(203, 76);
+            this.Spremi.TabIndex = 0;
+            this.Spremi.Text = "Spremi";
+            this.Spremi.UseVisualStyleBackColor = false;
+            this.Spremi.Click += new System.EventHandler(this.Spremi_Click);
             // 
-            // listBox1
+            // KodoviArtikala
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 23;
-            this.listBox1.Location = new System.Drawing.Point(75, 22);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(201, 441);
-            this.listBox1.TabIndex = 1;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.KodoviArtikala.FormattingEnabled = true;
+            this.KodoviArtikala.ItemHeight = 23;
+            this.KodoviArtikala.Location = new System.Drawing.Point(75, 22);
+            this.KodoviArtikala.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.KodoviArtikala.Name = "KodoviArtikala";
+            this.KodoviArtikala.Size = new System.Drawing.Size(201, 441);
+            this.KodoviArtikala.TabIndex = 1;
+            this.KodoviArtikala.SelectedIndexChanged += new System.EventHandler(this.KodoviArtikala_SelectedIndexChanged);
             // 
-            // numericUpDown1
+            // popustNUD
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(140, 546);
-            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(137, 30);
-            this.numericUpDown1.TabIndex = 2;
+            this.popustNUD.Location = new System.Drawing.Point(140, 546);
+            this.popustNUD.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.popustNUD.Name = "popustNUD";
+            this.popustNUD.Size = new System.Drawing.Size(137, 30);
+            this.popustNUD.TabIndex = 2;
             // 
-            // label1
+            // popustLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(71, 551);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 24);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Popust: ";
+            this.popustLabel.AutoSize = true;
+            this.popustLabel.Location = new System.Drawing.Point(71, 551);
+            this.popustLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.popustLabel.Name = "popustLabel";
+            this.popustLabel.Size = new System.Drawing.Size(69, 24);
+            this.popustLabel.TabIndex = 3;
+            this.popustLabel.Text = "Popust: ";
             // 
-            // label2
+            // imeSelektiranogLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(105, 496);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(166, 24);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "ime odabranog artikla";
+            this.imeSelektiranogLabel.AutoSize = true;
+            this.imeSelektiranogLabel.Location = new System.Drawing.Point(105, 496);
+            this.imeSelektiranogLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.imeSelektiranogLabel.Name = "imeSelektiranogLabel";
+            this.imeSelektiranogLabel.Size = new System.Drawing.Size(166, 24);
+            this.imeSelektiranogLabel.TabIndex = 4;
+            this.imeSelektiranogLabel.Text = "ime odabranog artikla";
             // 
             // contextMenuStrip1
             // 
@@ -144,24 +144,24 @@
             // 
             // Form4
             // 
-            this.AcceptButton = this.button1;
+            this.AcceptButton = this.Spremi;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(416, 730);
             this.ContextMenuStrip = this.contextMenuStrip1;
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.imeSelektiranogLabel);
+            this.Controls.Add(this.popustLabel);
+            this.Controls.Add(this.popustNUD);
+            this.Controls.Add(this.KodoviArtikala);
+            this.Controls.Add(this.Spremi);
             this.Font = new System.Drawing.Font("Segoe Print", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Name = "Form4";
             this.Text = "Form4";
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Form4_MouseClick);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popustNUD)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
@@ -171,11 +171,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button Spremi;
+        private System.Windows.Forms.ListBox KodoviArtikala;
+        private System.Windows.Forms.NumericUpDown popustNUD;
+        private System.Windows.Forms.Label popustLabel;
+        private System.Windows.Forms.Label imeSelektiranogLabel;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem promijeniToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bojuPozadineToolStripMenuItem;

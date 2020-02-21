@@ -24,19 +24,19 @@ namespace T
 
             this.Font = f;
             this.BackColor = bc;
-            textBox2.PasswordChar = '*';
+            passwordTB.PasswordChar = '*';
             errorProvider1.BlinkStyle = ErrorBlinkStyle.NeverBlink;
 
-            toolTip1.SetToolTip(textBox1, "Ovdje upisujte username koji ste odabrali za sluzenje aplikacijom.");
-            toolTip1.SetToolTip(textBox2, "Password ce biti prikriven iz sigurnosnih razloga.");
+            toolTip1.SetToolTip(usernameTB, "Ovdje upisujte username koji ste odabrali za sluzenje aplikacijom.");
+            toolTip1.SetToolTip(passwordTB, "Password ce biti prikriven iz sigurnosnih razloga.");
         }
 
         private void login_Click(object sender, EventArgs e)
         {
 
-            if(string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox2.Text))
+            if(string.IsNullOrEmpty(usernameTB.Text) || string.IsNullOrEmpty(passwordTB.Text))
             {
-                errorProvider1.SetError(button1, "Obje kućice moraju biti ispunjene.");
+                errorProvider1.SetError(Login, "Obje kućice moraju biti ispunjene.");
                 return;
             }
 
@@ -47,7 +47,7 @@ namespace T
 
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = "SELECT Username, Password, IsManager from Zaposlenici where Username = @Username";
-            cmd.Parameters.AddWithValue("@Username", textBox1.Text);
+            cmd.Parameters.AddWithValue("@Username", usernameTB.Text);
             //cmd.Parameters.AddWithValue("@Password", textBox2.Text);
             cmd.Connection = connection2;
 
@@ -72,9 +72,9 @@ namespace T
             if (kontrola)
             {
 
-                if(textBox1.Text == "pero" || textBox1.Text == "nikola" || textBox1.Text == "josko")
+                if(usernameTB.Text == "pero" || usernameTB.Text == "nikola" || usernameTB.Text == "josko")
                 {
-                    if(pass == textBox2.Text)
+                    if(pass == passwordTB.Text)
                     {
                         form1 = new Form1(manager, ime, this.BackColor, this.Font);
                         MessageBox.Show("Login uspješan za korisnika: " + ime, "Login", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -84,13 +84,13 @@ namespace T
 
                     else
                     {
-                        errorProvider1.SetError(textBox2, "Pogresan password ili username");
-                        errorProvider1.SetError(textBox1, "Pogresan password ili username");
+                        errorProvider1.SetError(passwordTB, "Pogresan password ili username");
+                        errorProvider1.SetError(usernameTB, "Pogresan password ili username");
                     }
 
                 }
 
-                else if(Encrypt_Decrypt.decrypt(pass) == textBox2.Text)
+                else if(Encrypt_Decrypt.decrypt(pass) == passwordTB.Text)
                 { 
 
                     form1 = new Form1(manager, ime, this.BackColor, this.Font);
@@ -101,16 +101,16 @@ namespace T
 
                 else
                 {
-                    errorProvider1.SetError(textBox2, "Pogresan password ili username");
-                    errorProvider1.SetError(textBox1, "Pogresan password ili username");
+                    errorProvider1.SetError(passwordTB, "Pogresan password ili username");
+                    errorProvider1.SetError(usernameTB, "Pogresan password ili username");
                 }
                 
             }
 
             else
             {
-                errorProvider1.SetError(textBox2, "Pogresan password ili username");
-                errorProvider1.SetError(textBox1, "Pogresan password ili username");
+                errorProvider1.SetError(passwordTB, "Pogresan password ili username");
+                errorProvider1.SetError(usernameTB, "Pogresan password ili username");
             }
         }
 

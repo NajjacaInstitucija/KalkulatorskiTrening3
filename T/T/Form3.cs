@@ -25,26 +25,26 @@ namespace T
             textBox5.Text = DateTime.Now.ToShortDateString();
             errorProvider1.BlinkStyle = ErrorBlinkStyle.BlinkIfDifferentError;
 
-            toolTip1.SetToolTip(textBox2, "Cijena mora biti tipa double");
-            toolTip1.SetToolTip(textBox4, "Popust mora biti tipa int");
+            toolTip1.SetToolTip(cijenaTB, "Cijena mora biti tipa double");
+            toolTip1.SetToolTip(popustTB, "Popust mora biti tipa int");
             toolTip1.SetToolTip(textBox5, "Datum mora biti u prikladnom formatu");
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Spremi_Click(object sender, EventArgs e)
         {
-            if(string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox2.Text) || string.IsNullOrEmpty(textBox3.Text) ||
-                string.IsNullOrEmpty(textBox4.Text) || string.IsNullOrEmpty(textBox5.Text) || string.IsNullOrEmpty(textBox6.Text))
+            if(string.IsNullOrEmpty(imeTB.Text) || string.IsNullOrEmpty(cijenaTB.Text) || string.IsNullOrEmpty(kategorijaTB.Text) ||
+                string.IsNullOrEmpty(popustTB.Text) || string.IsNullOrEmpty(textBox5.Text) || string.IsNullOrEmpty(kodArtiklaTB.Text))
             {
                 
-                errorProvider1.SetError(button1, "Jedno od polja je prazno");
+                errorProvider1.SetError(Spremi, "Jedno od polja je prazno");
                 return;
             }
 
             int res;
-            if(!Int32.TryParse(textBox4.Text, out res))
+            if(!Int32.TryParse(popustTB.Text, out res))
             {
-                errorProvider1.SetError(textBox4, "Popust mora biti tipa int.");
+                errorProvider1.SetError(popustTB, "Popust mora biti tipa int.");
                 return;
             }
             //spremanje u bazu
@@ -58,13 +58,13 @@ namespace T
                     "VALUES (@Ime, @Cijena, @kat, @ru, @dn, @ka, @p)";
 
 
-                cmd.Parameters.AddWithValue("@Ime", textBox1.Text);
-                cmd.Parameters.AddWithValue("@Cijena", textBox2.Text);
-                cmd.Parameters.AddWithValue("@kat", textBox3.Text);
-                cmd.Parameters.AddWithValue("@ru", dateTimePicker1.Text);
+                cmd.Parameters.AddWithValue("@Ime", imeTB.Text);
+                cmd.Parameters.AddWithValue("@Cijena", cijenaTB.Text);
+                cmd.Parameters.AddWithValue("@kat", kategorijaTB.Text);
+                cmd.Parameters.AddWithValue("@ru", rokUpotrebeDP.Text);
                 cmd.Parameters.AddWithValue("@dn", textBox5.Text);
-                cmd.Parameters.AddWithValue("@ka", textBox6.Text);
-                cmd.Parameters.AddWithValue("@p", textBox4.Text);
+                cmd.Parameters.AddWithValue("@ka", kodArtiklaTB.Text);
+                cmd.Parameters.AddWithValue("@p", popustTB.Text);
 
 
                 cmd.Connection = connection3;
@@ -156,7 +156,7 @@ namespace T
                 
             }
 
-            toolTip1.SetToolTip(textBox3, kategorijeString);
+            toolTip1.SetToolTip(kategorijaTB, kategorijeString);
 
         }
     }

@@ -34,17 +34,18 @@ namespace T
             imePosluzitelja = ime;
             this.Font = f;
             this.BackColor = bc;
-            textBox2.Enabled = false;
-            textBox3.Enabled = false;
+            kodArtiklaTB.Enabled = false;
+            cijenaTB.Enabled = false;
+            popustTB.Enabled = false;
             toolStripStatusLabel6.Text = "Trenutni poslužitelj: " + imePosluzitelja;
 
             errorProvider1.BlinkStyle = ErrorBlinkStyle.BlinkIfDifferentError;
 
             if(!manager)
             {
-                button6.Visible = false;
-                button7.Visible = false;
-                button8.Visible = false;
+                DodajNoviArtikl.Visible = false;
+                PromijeniPopust.Visible = false;
+                IzbaciArtikl.Visible = false;
                 upravljanjeToolStripMenuItem.Visible = false;
                 dodajNoviArtiklToolStripMenuItem.Visible = false;
                 izbaciArtiklIzPonudeToolStripMenuItem.Visible = false;
@@ -73,8 +74,8 @@ namespace T
 
             while(reader.Read())
             {
-                if(!comboBox1.Items.Contains(reader[0].ToString()))
-                comboBox1.Items.Add(reader[0].ToString());
+                if(!kategorijaCombo.Items.Contains(reader[0].ToString()))
+                kategorijaCombo.Items.Add(reader[0].ToString());
             }
             reader.Close();
             connection.Close();
@@ -86,16 +87,20 @@ namespace T
         private void promjenaUpisaImenaArtikla_TextChanged(object sender, EventArgs e)
         {
            
-            listBox1.Items.Clear();
+            PretrazivacArtikala.Items.Clear();
 
-            if (!string.IsNullOrEmpty(textBox1.Text))
+            if (!string.IsNullOrEmpty(productNameTB.Text))
             {
 
                 OleDbCommand cmd = new OleDbCommand();
 
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "SELECT Ime from Artikli where Ime like '" + textBox1.Text + "%' or Ime like '% " + textBox1.Text + "%'" ;
-                //cmd.Parameters.AddWithValue("@Ime", textBox1.Text);
+//                cmd.CommandText = "SELECT Ime from Artikli where Ime like '" + productNameTB.Text + "%' or Ime like '% " + productNameTB.Text + "%'" ;
+                cmd.CommandText = "SELECT Ime from Artikli where Ime like @ImeA1 or Ime like @ImeA2";
+                cmd.Parameters.AddWithValue("@ImeA1", productNameTB.Text + "%");
+                cmd.Parameters.AddWithValue("@ImeA2", "% " + productNameTB.Text + "%");
+
+                
                 cmd.Connection = connection;
 
                 connection.Open();
@@ -103,7 +108,7 @@ namespace T
 
                 while (reader.Read())
                 {
-                    listBox1.Items.Add(reader.GetString(0));
+                    PretrazivacArtikala.Items.Add(reader.GetString(0));
                 }
                 reader.Close();
                 connection.Close();
@@ -146,20 +151,9 @@ namespace T
 
             OleDbCommand cmd = new OleDbCommand();
 
-            /*string text;
-            int found = listBox1.GetItemText(listBox1.SelectedItem).IndexOf(" ") + 1;
-            if (found != -1)
-            {
-
-                text = listBox1.GetItemText(listBox1.SelectedItem).Substring(0, found);
-                MessageBox.Show(text);
-            }
-
-            else text = listBox1.GetItemText(listBox1.SelectedItem);*/
-            
-
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "SELECT Cijena, Kategorija, KodArtikla from Artikli where Ime = '" + listBox1.GetItemText(listBox1.SelectedItem) + "'";
+            cmd.CommandText = "SELECT Cijena, Kategorija, KodArtikla, Popust from Artikli where Ime = @ImaA";
+            cmd.Parameters.AddWithValue("@ImeA", PretrazivacArtikala.GetItemText(PretrazivacArtikala.SelectedItem));
             cmd.Connection = connection;
            
             
@@ -167,17 +161,18 @@ namespace T
             connection.Open();
             OleDbDataReader reader = cmd.ExecuteReader();
 
-            while (reader.Read())
+            if (reader.Read())
             {
                 if(reader.GetString(1) == "Dairy" || reader.GetString(1) == "Candy")
-                    textBox3.Text = reader.GetString(0) + " kn/pak";
+                    cijenaTB.Text = reader.GetString(0) + " kn/pak";
 
                 else if(reader.GetString(1) == "Fruit")
-                    textBox3.Text = reader.GetString(0) + " kn/kg";
+                    cijenaTB.Text = reader.GetString(0) + " kn/kg";
 
-                else textBox3.Text = reader.GetString(0) + " kn/kom";
+                else cijenaTB.Text = reader.GetString(0) + " kn/kom";
 
-                textBox2.Text = reader.GetString(2);
+                kodArtiklaTB.Text = reader.GetString(2);
+                popustTB.Text = reader.GetString(3);
             }
             reader.Close();
             connection.Close();
@@ -191,7 +186,8 @@ namespace T
             OleDbCommand cmd = new OleDbCommand();
 
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "SELECT Cijena, Kategorija, KodArtikla from Artikli where KodArtikla = '" + textBox5.Text + "'";
+            cmd.CommandText = "SELECT Cijena, Kategorija, KodArtikla, Popust from Artikli where KodArtikla = @codeChecker";
+            cmd.Parameters.AddWithValue("@codeChecker", codeCheckerTB.Text);
             cmd.Connection = connection;
 
             connection.Open();
@@ -200,14 +196,15 @@ namespace T
             if (reader.Read())
             {
                 if (reader.GetString(1) == "Dairy" || reader.GetString(1) == "Candy")
-                    textBox3.Text = reader.GetString(0) + " kn/pak";
+                    cijenaTB.Text = reader.GetString(0) + " kn/pak";
 
                 else if (reader.GetString(1) == "Fruit")
-                    textBox3.Text = reader.GetString(0) + " kn/kg";
+                    cijenaTB.Text = reader.GetString(0) + " kn/kg";
 
-                else textBox3.Text = reader.GetString(0) + " kn/kom";
+                else cijenaTB.Text = reader.GetString(0) + " kn/kom";
 
-                textBox2.Text = reader.GetString(2);
+                kodArtiklaTB.Text = reader.GetString(2);
+                popustTB.Text = reader.GetString(3);
             }
 
             else MessageBox.Show("Nema artikla s upisanim kodom");
@@ -220,9 +217,9 @@ namespace T
         private void dodajNaRacun_Click(object sender, EventArgs e)
         {
 
-            if(string.IsNullOrEmpty(textBox2.Text))
+            if(string.IsNullOrEmpty(kodArtiklaTB.Text))
             {
-                errorProvider1.SetError(button1, "Dodavanje ničeg nije moguće.");
+                errorProvider1.SetError(DodajNaRacun, "Dodavanje ničeg nije moguće.");
                 return;
             }
 
@@ -232,7 +229,9 @@ namespace T
                 OleDbCommand cmd = new OleDbCommand();
 
                 cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "SELECT * from Artikli where KodArtikla = '" + textBox2.Text + "'";
+                cmd.CommandText = "SELECT * from Artikli where KodArtikla = @ka";
+                cmd.Parameters.AddWithValue("@ka", kodArtiklaTB.Text);
+
                 cmd.Connection = connection;
 
                 connection.Open();
@@ -241,7 +240,7 @@ namespace T
                 if (reader.Read())
                 {
                     Artikl artikl = new Artikl(reader.GetString(1), Convert.ToDouble(reader.GetString(2)), reader.GetString(3), 
-                        reader.GetString(4), reader.GetString(5), reader.GetString(6), Convert.ToInt32(reader.GetString(7)), Convert.ToInt32(numericUpDown1.Value));
+                        reader.GetString(4), reader.GetString(5), reader.GetString(6), Convert.ToInt32(reader.GetString(7)), Convert.ToInt32(kolicinaNumericUpDpwn.Value));
 
                     if (racun.Contains(artikl))
                     {
@@ -277,18 +276,19 @@ namespace T
                 reader.Close();
                 connection.Close();
 
-                listBox2.Items.Clear();
-                listBox2.Items.Add("Kod artikla\t" + "Naziv\t\t" + "Cijena\t" + "Kolicina\t" + "Popust\t" + "Iznos");
-                listBox2.Items.Add("------------------------------------------------------------------------------------------------------------------------");
+                RacunList.Items.Clear();
+                RacunList.Items.Add("Kod artikla\t" + "Naziv\t\t" + "Cijena\t" + "Kolicina\t" + "Popust\t" + "Iznos");
+                RacunList.Items.Add("------------------------------------------------------------------------------------------------------------------------");
 
                 foreach (Artikl a in racun)
-                    listBox2.Items.Add(a);
+                    RacunList.Items.Add(a);
 
-                textBox2.Text = "";
-                textBox3.Text = "";
-                textBox1.Text = "";
-                textBox5.Text = "";
-                numericUpDown1.Value = 1;
+                kodArtiklaTB.Text = "";
+                cijenaTB.Text = "";
+                productNameTB.Text = "";
+                codeCheckerTB.Text = "";
+                popustTB.Text = "";
+                kolicinaNumericUpDpwn.Value = 1;
 
             }
 
@@ -298,11 +298,11 @@ namespace T
         private void makniSRacuna_Click(object sender, EventArgs e)
         {
 
-            if (listBox1.SelectedIndex < 0 || 
-                listBox2.GetItemText(listBox2.SelectedItem) == "Kod artikla\t" + "Naziv\t\t" + "Cijena\t" + "Kolicina\t" + "Popust\t" + "Iznos" ||
-                listBox2.GetItemText(listBox2.SelectedItem) == "------------------------------------------------------------------------------------------------------------------------")
+            if (PretrazivacArtikala.SelectedIndex < 0 || 
+                RacunList.GetItemText(RacunList.SelectedItem) == "Kod artikla\t" + "Naziv\t\t" + "Cijena\t" + "Kolicina\t" + "Popust\t" + "Iznos" ||
+                RacunList.GetItemText(RacunList.SelectedItem) == "------------------------------------------------------------------------------------------------------------------------")
             {
-                errorProvider1.SetError(button4, "Mora biti odabran artikl kojeg želimo maknuti");
+                errorProvider1.SetError(MakniSRacuna, "Mora biti odabran artikl kojeg želimo maknuti");
                 return;
             }
 
@@ -310,29 +310,22 @@ namespace T
             DialogResult res = MessageBox.Show("Želite li sigurno maknuti označeni artikl?", "Brisanje artikla s računa", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
 
             if (res == DialogResult.Yes)
-            {
-                
+                racun.RemoveAt(RacunList.SelectedIndex-2);
+               
+            
 
-               /* foreach (Artikl a in racun)
-                    if (a.ToString() == listBox2.GetItemText(listBox2.SelectedItem))
-                        racun.Remove(a);*/
-
-                racun.RemoveAt(listBox2.SelectedIndex-2);
-                //listBox2.Items.Remove(listBox2.SelectedItem);
-            }
-
-            listBox2.Items.Clear();
-            listBox2.Items.Add("Kod artikla\t" + "Naziv\t\t" + "Cijena\t" + "Kolicina\t" + "Popust\t" + "Iznos");
-            listBox2.Items.Add("------------------------------------------------------------------------------------------------------------------------");
+            RacunList.Items.Clear();
+            RacunList.Items.Add("Kod artikla\t" + "Naziv\t\t" + "Cijena\t" + "Kolicina\t" + "Popust\t" + "Iznos");
+            RacunList.Items.Add("------------------------------------------------------------------------------------------------------------------------");
 
             foreach (Artikl a in racun)
-                listBox2.Items.Add(a);
+                RacunList.Items.Add(a);
 
-            textBox2.Text = "";
-            textBox3.Text = "";
-            textBox1.Text = "";
-            textBox5.Text = "";
-            numericUpDown1.Value = 1;
+            kodArtiklaTB.Text = "";
+            cijenaTB.Text = "";
+            productNameTB.Text = "";
+            codeCheckerTB.Text = "";
+            kolicinaNumericUpDpwn.Value = 1;
         }
 
         // ispis racuna
@@ -340,7 +333,7 @@ namespace T
         {
             if (racun.Count < 1)
             {
-                errorProvider1.SetError(button2, "Mora biti bar jedan artikl na računu.");
+                errorProvider1.SetError(IzradiRacun, "Mora biti bar jedan artikl na računu.");
                 return;
             }
 
@@ -366,16 +359,16 @@ namespace T
             text += "Nacin placanja:\t";
 
             string nacinPLacanja = "";
-            if (radioButton1.Checked)
+            if (gotovinaRadio.Checked)
                 nacinPLacanja = "gotovina";
 
-            else if (radioButton2.Checked)
+            else if (cekoviRadio.Checked)
                 nacinPLacanja = "cekovi";
 
-            else if (radioButton3.Checked)
+            else if (karticaRadio.Checked)
                 nacinPLacanja = "kartica";
 
-            else if (radioButton4.Checked)
+            else if (bonoviRadio.Checked)
                 nacinPLacanja = "bonovi";
 
             else nacinPLacanja = "gotovina";
@@ -428,8 +421,8 @@ namespace T
                 toolStripStatusLabel5.Text = "Prosječan iznos računa: " + prosječanIznosRacuna.ToString();
 
 
-                listBox2.Items.Clear();
-                listBox1.Items.Clear();
+                RacunList.Items.Clear();
+                PretrazivacArtikala.Items.Clear();
                 racun.Clear();
             }
 
@@ -453,20 +446,20 @@ namespace T
         }
 
       
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void KategorijaCB_SelectedIndexChanged(object sender, EventArgs e)
         {
-            listBox1.Items.Clear();
-            textBox2.Text = "";
-            textBox3.Text = "";
-            textBox1.Text = "";
-            textBox5.Text = "";
-            numericUpDown1.Value = 1;
+            PretrazivacArtikala.Items.Clear();
+            kodArtiklaTB.Text = "";
+            cijenaTB.Text = "";
+            productNameTB.Text = "";
+            codeCheckerTB.Text = "";
+            kolicinaNumericUpDpwn.Value = 1;
 
             OleDbCommand cmd = new OleDbCommand();
 
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = "Select Ime from Artikli where Kategorija = @kat";
-            cmd.Parameters.AddWithValue("@kat", comboBox1.GetItemText(comboBox1.SelectedItem));
+            cmd.Parameters.AddWithValue("@kat", kategorijaCombo.GetItemText(kategorijaCombo.SelectedItem));
 
             cmd.Connection = connection;
             connection.Open();
@@ -474,7 +467,7 @@ namespace T
             OleDbDataReader reader = cmd.ExecuteReader();
             while(reader.Read())
             {
-                listBox1.Items.Add(reader.GetString(0));
+                PretrazivacArtikala.Items.Add(reader.GetString(0));
             }
             reader.Close();
             connection.Close();
@@ -528,38 +521,38 @@ namespace T
 
         private void gotovinaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            radioButton2.Checked = false;
-            radioButton3.Checked = false;
-            radioButton4.Checked = false;
-            if (!radioButton1.Checked)
-                radioButton1.Checked = true;
+            cekoviRadio.Checked = false;
+            karticaRadio.Checked = false;
+            bonoviRadio.Checked = false;
+            if (!gotovinaRadio.Checked)
+                gotovinaRadio.Checked = true;
         }
 
         private void cekoviToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            radioButton1.Checked = false;
-            radioButton3.Checked = false;
-            radioButton4.Checked = false;
-            if (!radioButton2.Checked)
-                radioButton2.Checked = true;
+            gotovinaRadio.Checked = false;
+            karticaRadio.Checked = false;
+            bonoviRadio.Checked = false;
+            if (!cekoviRadio.Checked)
+                cekoviRadio.Checked = true;
         }
 
         private void karticaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            radioButton2.Checked = false;
-            radioButton1.Checked = false;
-            radioButton4.Checked = false;
-            if (!radioButton3.Checked)
-                radioButton3.Checked = true;
+            cekoviRadio.Checked = false;
+            gotovinaRadio.Checked = false;
+            bonoviRadio.Checked = false;
+            if (!karticaRadio.Checked)
+                karticaRadio.Checked = true;
         }
 
         private void bonoviToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            radioButton2.Checked = false;
-            radioButton3.Checked = false;
-            radioButton1.Checked = false;
-            if (!radioButton4.Checked)
-                radioButton4.Checked = true;
+            cekoviRadio.Checked = false;
+            karticaRadio.Checked = false;
+            gotovinaRadio.Checked = false;
+            if (!bonoviRadio.Checked)
+                bonoviRadio.Checked = true;
         }
 
         private void fontToolStripMenuItem_Click(object sender, EventArgs e)
@@ -575,6 +568,8 @@ namespace T
             if (res == DialogResult.OK)
                 this.BackColor = colorDialog1.Color;
         }
+
+       
 
         private void izbrisiArtikl_Click(object sender, EventArgs e)
         {

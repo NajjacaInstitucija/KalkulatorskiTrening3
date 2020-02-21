@@ -24,7 +24,7 @@ namespace T
 
             this.Font = f;
             this.BackColor = bc;
-            listBox1.Items.Clear();
+            KodoviArtikala.Items.Clear();
             errorProvider1.BlinkStyle = ErrorBlinkStyle.NeverBlink;
             
 
@@ -37,20 +37,20 @@ namespace T
             OleDbDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                listBox1.Items.Add(reader.GetString(0));
+                KodoviArtikala.Items.Add(reader.GetString(0));
             }
                 reader.Close();
                 connection4.Close();
             
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void KodoviArtikala_SelectedIndexChanged(object sender, EventArgs e)
         {
 
             OleDbCommand cmd = new OleDbCommand();
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = "SELECT Ime from Artikli where KodArtikla = @KodArtikla"; 
-            cmd.Parameters.AddWithValue("@KodArtikla", listBox1.GetItemText(listBox1.SelectedItem));
+            cmd.Parameters.AddWithValue("@KodArtikla", KodoviArtikala.GetItemText(KodoviArtikala.SelectedItem));
             cmd.Connection = connection4;
             connection4.Open();
             OleDbDataReader reader = cmd.ExecuteReader();
@@ -60,15 +60,15 @@ namespace T
             }
             reader.Close();
             connection4.Close();
-            label2.Text = item;
-            //label2.Text = listBox1.SelectedIndex.ToString();
+            imeSelektiranogLabel.Text = item;
+            
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Spremi_Click(object sender, EventArgs e)
         {
-            if (listBox1.SelectedIndex < 0)
+            if (KodoviArtikala.SelectedIndex < 0)
             {
-                errorProvider1.SetError(button1, "Treba odabrati artikl kojem želimo promijeniti popust.");
+                errorProvider1.SetError(Spremi, "Treba odabrati artikl kojem želimo promijeniti popust.");
                 return; 
             }
 
@@ -82,8 +82,8 @@ namespace T
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = "UPDATE Artikli set Popust = @Popust where KodArtikla = @KodArtikla";
 
-                cmd.Parameters.AddWithValue("@Popust", Convert.ToInt32(numericUpDown1.Value));
-                cmd.Parameters.AddWithValue("@KodArtikla", listBox1.GetItemText(listBox1.SelectedItem));
+                cmd.Parameters.AddWithValue("@Popust", Convert.ToInt32(popustNUD.Value));
+                cmd.Parameters.AddWithValue("@KodArtikla", KodoviArtikala.GetItemText(KodoviArtikala.SelectedItem));
 
 
                 cmd.Connection = connection4;

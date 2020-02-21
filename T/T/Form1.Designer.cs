@@ -30,22 +30,22 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.button4 = new System.Windows.Forms.Button();
+            this.productNameLabel = new System.Windows.Forms.Label();
+            this.productNameTB = new System.Windows.Forms.TextBox();
+            this.kodArtiklaTB = new System.Windows.Forms.TextBox();
+            this.PretrazivacArtikala = new System.Windows.Forms.ListBox();
+            this.cijenaLabel = new System.Windows.Forms.Label();
+            this.cijenaTB = new System.Windows.Forms.TextBox();
+            this.DodajNaRacun = new System.Windows.Forms.Button();
+            this.IzradiRacun = new System.Windows.Forms.Button();
+            this.kodArtiklaLabel = new System.Windows.Forms.Label();
+            this.kolicinaLabel = new System.Windows.Forms.Label();
+            this.codeCheckerLabel = new System.Windows.Forms.Label();
+            this.CodeChecker = new System.Windows.Forms.Button();
+            this.codeCheckerTB = new System.Windows.Forms.TextBox();
+            this.kolicinaNumericUpDpwn = new System.Windows.Forms.NumericUpDown();
+            this.RacunList = new System.Windows.Forms.ListBox();
+            this.MakniSRacuna = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.imeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,18 +58,18 @@
             this.artikliBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.artikliDataSet2 = new T.ArtikliDataSet2();
             this.artikliTableAdapter = new T.ArtikliDataSet2TableAdapters.ArtikliTableAdapter();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.NacinPlacanja = new System.Windows.Forms.GroupBox();
+            this.bonoviRadio = new System.Windows.Forms.RadioButton();
+            this.karticaRadio = new System.Windows.Forms.RadioButton();
+            this.cekoviRadio = new System.Windows.Forms.RadioButton();
             this.label6 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button8 = new System.Windows.Forms.Button();
+            this.gotovinaRadio = new System.Windows.Forms.RadioButton();
+            this.Logout = new System.Windows.Forms.Button();
+            this.DodajNoviArtikl = new System.Windows.Forms.Button();
+            this.PromijeniPopust = new System.Windows.Forms.Button();
+            this.categoryLabel = new System.Windows.Forms.Label();
+            this.kategorijaCombo = new System.Windows.Forms.ComboBox();
+            this.IzbaciArtikl = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -97,187 +97,189 @@
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.popustLabel = new System.Windows.Forms.Label();
+            this.popustTB = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.kolicinaNumericUpDpwn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.artikliBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.artikliDataSet2)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.NacinPlacanja.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // productNameLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 362);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(115, 24);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Product name:";
+            this.productNameLabel.AutoSize = true;
+            this.productNameLabel.Location = new System.Drawing.Point(16, 362);
+            this.productNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.productNameLabel.Name = "productNameLabel";
+            this.productNameLabel.Size = new System.Drawing.Size(115, 24);
+            this.productNameLabel.TabIndex = 1;
+            this.productNameLabel.Text = "Product name:";
             // 
-            // textBox1
+            // productNameTB
             // 
-            this.textBox1.Location = new System.Drawing.Point(133, 358);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(153, 30);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.TextChanged += new System.EventHandler(this.promjenaUpisaImenaArtikla_TextChanged);
+            this.productNameTB.Location = new System.Drawing.Point(133, 358);
+            this.productNameTB.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.productNameTB.Name = "productNameTB";
+            this.productNameTB.Size = new System.Drawing.Size(153, 30);
+            this.productNameTB.TabIndex = 2;
+            this.productNameTB.TextChanged += new System.EventHandler(this.promjenaUpisaImenaArtikla_TextChanged);
             // 
-            // textBox2
+            // kodArtiklaTB
             // 
-            this.textBox2.Location = new System.Drawing.Point(133, 674);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(153, 30);
-            this.textBox2.TabIndex = 3;
+            this.kodArtiklaTB.Location = new System.Drawing.Point(133, 674);
+            this.kodArtiklaTB.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.kodArtiklaTB.Name = "kodArtiklaTB";
+            this.kodArtiklaTB.Size = new System.Drawing.Size(153, 30);
+            this.kodArtiklaTB.TabIndex = 3;
             // 
-            // listBox1
+            // PretrazivacArtikala
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 23;
-            this.listBox1.Location = new System.Drawing.Point(328, 358);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(187, 395);
-            this.listBox1.TabIndex = 5;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.promjenaOznacenogArtikla_SelectedIndexChanged);
+            this.PretrazivacArtikala.FormattingEnabled = true;
+            this.PretrazivacArtikala.ItemHeight = 23;
+            this.PretrazivacArtikala.Location = new System.Drawing.Point(328, 358);
+            this.PretrazivacArtikala.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.PretrazivacArtikala.Name = "PretrazivacArtikala";
+            this.PretrazivacArtikala.Size = new System.Drawing.Size(187, 395);
+            this.PretrazivacArtikala.TabIndex = 5;
+            this.PretrazivacArtikala.SelectedIndexChanged += new System.EventHandler(this.promjenaOznacenogArtikla_SelectedIndexChanged);
             // 
-            // label3
+            // cijenaLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 743);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(109, 24);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Cijena artikla:";
+            this.cijenaLabel.AutoSize = true;
+            this.cijenaLabel.Location = new System.Drawing.Point(18, 729);
+            this.cijenaLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.cijenaLabel.Name = "cijenaLabel";
+            this.cijenaLabel.Size = new System.Drawing.Size(109, 24);
+            this.cijenaLabel.TabIndex = 7;
+            this.cijenaLabel.Text = "Cijena artikla:";
             // 
-            // textBox3
+            // cijenaTB
             // 
-            this.textBox3.Location = new System.Drawing.Point(133, 743);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(153, 30);
-            this.textBox3.TabIndex = 8;
+            this.cijenaTB.Location = new System.Drawing.Point(133, 727);
+            this.cijenaTB.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.cijenaTB.Name = "cijenaTB";
+            this.cijenaTB.Size = new System.Drawing.Size(153, 30);
+            this.cijenaTB.TabIndex = 8;
             // 
-            // button1
+            // DodajNaRacun
             // 
-            this.button1.Location = new System.Drawing.Point(133, 875);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(155, 56);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Dodaj na racun";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.dodajNaRacun_Click);
+            this.DodajNaRacun.Location = new System.Drawing.Point(133, 875);
+            this.DodajNaRacun.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.DodajNaRacun.Name = "DodajNaRacun";
+            this.DodajNaRacun.Size = new System.Drawing.Size(155, 56);
+            this.DodajNaRacun.TabIndex = 10;
+            this.DodajNaRacun.Text = "Dodaj na racun";
+            this.DodajNaRacun.UseVisualStyleBackColor = true;
+            this.DodajNaRacun.Click += new System.EventHandler(this.dodajNaRacun_Click);
             // 
-            // button2
+            // IzradiRacun
             // 
-            this.button2.Location = new System.Drawing.Point(560, 874);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(584, 63);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "Izradi racun";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.izradiRacun_Click);
+            this.IzradiRacun.Location = new System.Drawing.Point(560, 874);
+            this.IzradiRacun.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.IzradiRacun.Name = "IzradiRacun";
+            this.IzradiRacun.Size = new System.Drawing.Size(584, 63);
+            this.IzradiRacun.TabIndex = 11;
+            this.IzradiRacun.Text = "Izradi racun";
+            this.IzradiRacun.UseVisualStyleBackColor = true;
+            this.IzradiRacun.Click += new System.EventHandler(this.izradiRacun_Click);
             // 
-            // label4
+            // kodArtiklaLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(37, 680);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(93, 24);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "Kod artikla:";
+            this.kodArtiklaLabel.AutoSize = true;
+            this.kodArtiklaLabel.Location = new System.Drawing.Point(37, 680);
+            this.kodArtiklaLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.kodArtiklaLabel.Name = "kodArtiklaLabel";
+            this.kodArtiklaLabel.Size = new System.Drawing.Size(93, 24);
+            this.kodArtiklaLabel.TabIndex = 13;
+            this.kodArtiklaLabel.Text = "Kod artikla:";
             // 
-            // label5
+            // kolicinaLabel
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(55, 808);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(68, 24);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Kolicina:";
+            this.kolicinaLabel.AutoSize = true;
+            this.kolicinaLabel.Location = new System.Drawing.Point(55, 836);
+            this.kolicinaLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.kolicinaLabel.Name = "kolicinaLabel";
+            this.kolicinaLabel.Size = new System.Drawing.Size(68, 24);
+            this.kolicinaLabel.TabIndex = 14;
+            this.kolicinaLabel.Text = "Kolicina:";
             // 
-            // label2
+            // codeCheckerLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 474);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(109, 24);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "Code Checker:";
+            this.codeCheckerLabel.AutoSize = true;
+            this.codeCheckerLabel.Location = new System.Drawing.Point(13, 474);
+            this.codeCheckerLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.codeCheckerLabel.Name = "codeCheckerLabel";
+            this.codeCheckerLabel.Size = new System.Drawing.Size(109, 24);
+            this.codeCheckerLabel.TabIndex = 15;
+            this.codeCheckerLabel.Text = "Code Checker:";
             // 
-            // button3
+            // CodeChecker
             // 
-            this.button3.Location = new System.Drawing.Point(131, 532);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(155, 47);
-            this.button3.TabIndex = 16;
-            this.button3.Text = "Check code";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.provjeraKoda_Click);
+            this.CodeChecker.Location = new System.Drawing.Point(131, 532);
+            this.CodeChecker.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.CodeChecker.Name = "CodeChecker";
+            this.CodeChecker.Size = new System.Drawing.Size(155, 47);
+            this.CodeChecker.TabIndex = 16;
+            this.CodeChecker.Text = "Check code";
+            this.CodeChecker.UseVisualStyleBackColor = true;
+            this.CodeChecker.Click += new System.EventHandler(this.provjeraKoda_Click);
             // 
-            // textBox5
+            // codeCheckerTB
             // 
-            this.textBox5.Location = new System.Drawing.Point(133, 469);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(153, 30);
-            this.textBox5.TabIndex = 17;
+            this.codeCheckerTB.Location = new System.Drawing.Point(133, 469);
+            this.codeCheckerTB.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.codeCheckerTB.Name = "codeCheckerTB";
+            this.codeCheckerTB.Size = new System.Drawing.Size(153, 30);
+            this.codeCheckerTB.TabIndex = 17;
             // 
-            // numericUpDown1
+            // kolicinaNumericUpDpwn
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(133, 805);
-            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.kolicinaNumericUpDpwn.Location = new System.Drawing.Point(133, 833);
+            this.kolicinaNumericUpDpwn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.kolicinaNumericUpDpwn.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
+            this.kolicinaNumericUpDpwn.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(155, 30);
-            this.numericUpDown1.TabIndex = 18;
-            this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.kolicinaNumericUpDpwn.Name = "kolicinaNumericUpDpwn";
+            this.kolicinaNumericUpDpwn.Size = new System.Drawing.Size(155, 30);
+            this.kolicinaNumericUpDpwn.TabIndex = 18;
+            this.kolicinaNumericUpDpwn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.kolicinaNumericUpDpwn.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
             // 
-            // listBox2
+            // RacunList
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 23;
-            this.listBox2.Location = new System.Drawing.Point(560, 358);
-            this.listBox2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(583, 395);
-            this.listBox2.TabIndex = 19;
+            this.RacunList.FormattingEnabled = true;
+            this.RacunList.ItemHeight = 23;
+            this.RacunList.Location = new System.Drawing.Point(560, 358);
+            this.RacunList.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.RacunList.Name = "RacunList";
+            this.RacunList.Size = new System.Drawing.Size(583, 395);
+            this.RacunList.TabIndex = 19;
             // 
-            // button4
+            // MakniSRacuna
             // 
-            this.button4.Location = new System.Drawing.Point(560, 788);
-            this.button4.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(584, 63);
-            this.button4.TabIndex = 20;
-            this.button4.Text = "Makni s racuna";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.makniSRacuna_Click);
+            this.MakniSRacuna.Location = new System.Drawing.Point(560, 788);
+            this.MakniSRacuna.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.MakniSRacuna.Name = "MakniSRacuna";
+            this.MakniSRacuna.Size = new System.Drawing.Size(584, 63);
+            this.MakniSRacuna.TabIndex = 20;
+            this.MakniSRacuna.Text = "Makni s racuna";
+            this.MakniSRacuna.UseVisualStyleBackColor = true;
+            this.MakniSRacuna.Click += new System.EventHandler(this.makniSRacuna_Click);
             // 
             // dataGridView1
             // 
@@ -378,57 +380,56 @@
             // 
             this.artikliTableAdapter.ClearBeforeFill = true;
             // 
-            // groupBox1
+            // NacinPlacanja
             // 
-            this.groupBox1.Controls.Add(this.radioButton4);
-            this.groupBox1.Controls.Add(this.radioButton3);
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Location = new System.Drawing.Point(1184, 367);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.groupBox1.Size = new System.Drawing.Size(267, 390);
-            this.groupBox1.TabIndex = 22;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.NacinPlacanja.Controls.Add(this.bonoviRadio);
+            this.NacinPlacanja.Controls.Add(this.karticaRadio);
+            this.NacinPlacanja.Controls.Add(this.cekoviRadio);
+            this.NacinPlacanja.Controls.Add(this.label6);
+            this.NacinPlacanja.Controls.Add(this.gotovinaRadio);
+            this.NacinPlacanja.Location = new System.Drawing.Point(1184, 367);
+            this.NacinPlacanja.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.NacinPlacanja.Name = "NacinPlacanja";
+            this.NacinPlacanja.Padding = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.NacinPlacanja.Size = new System.Drawing.Size(267, 390);
+            this.NacinPlacanja.TabIndex = 22;
+            this.NacinPlacanja.TabStop = false;
             // 
-            // radioButton4
+            // bonoviRadio
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(49, 293);
-            this.radioButton4.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(76, 28);
-            this.radioButton4.TabIndex = 4;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "bonovi";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.bonoviRadio.AutoSize = true;
+            this.bonoviRadio.Location = new System.Drawing.Point(49, 293);
+            this.bonoviRadio.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.bonoviRadio.Name = "bonoviRadio";
+            this.bonoviRadio.Size = new System.Drawing.Size(76, 28);
+            this.bonoviRadio.TabIndex = 4;
+            this.bonoviRadio.TabStop = true;
+            this.bonoviRadio.Text = "bonovi";
+            this.bonoviRadio.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // karticaRadio
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(49, 233);
-            this.radioButton3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(80, 28);
-            this.radioButton3.TabIndex = 3;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "kartica";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.karticaRadio.AutoSize = true;
+            this.karticaRadio.Location = new System.Drawing.Point(49, 233);
+            this.karticaRadio.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.karticaRadio.Name = "karticaRadio";
+            this.karticaRadio.Size = new System.Drawing.Size(80, 28);
+            this.karticaRadio.TabIndex = 3;
+            this.karticaRadio.TabStop = true;
+            this.karticaRadio.Text = "kartica";
+            this.karticaRadio.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // cekoviRadio
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(49, 174);
-            this.radioButton2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(73, 28);
-            this.radioButton2.TabIndex = 2;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "cekovi";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.cekoviRadio.AutoSize = true;
+            this.cekoviRadio.Location = new System.Drawing.Point(49, 174);
+            this.cekoviRadio.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.cekoviRadio.Name = "cekoviRadio";
+            this.cekoviRadio.Size = new System.Drawing.Size(73, 28);
+            this.cekoviRadio.TabIndex = 2;
+            this.cekoviRadio.TabStop = true;
+            this.cekoviRadio.Text = "cekovi";
+            this.cekoviRadio.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
@@ -440,86 +441,86 @@
             this.label6.TabIndex = 1;
             this.label6.Text = "Nacin placanja:";
             // 
-            // radioButton1
+            // gotovinaRadio
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(49, 112);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(91, 28);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "gotovina";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.gotovinaRadio.AutoSize = true;
+            this.gotovinaRadio.Location = new System.Drawing.Point(49, 112);
+            this.gotovinaRadio.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.gotovinaRadio.Name = "gotovinaRadio";
+            this.gotovinaRadio.Size = new System.Drawing.Size(91, 28);
+            this.gotovinaRadio.TabIndex = 0;
+            this.gotovinaRadio.TabStop = true;
+            this.gotovinaRadio.Text = "gotovina";
+            this.gotovinaRadio.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // Logout
             // 
-            this.button5.BackColor = System.Drawing.Color.Teal;
-            this.button5.Font = new System.Drawing.Font("Segoe Print", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(1184, 819);
-            this.button5.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(267, 95);
-            this.button5.TabIndex = 23;
-            this.button5.Text = "Logout";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.logout_Click);
+            this.Logout.BackColor = System.Drawing.Color.Teal;
+            this.Logout.Font = new System.Drawing.Font("Segoe Print", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Logout.Location = new System.Drawing.Point(1184, 819);
+            this.Logout.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.Logout.Name = "Logout";
+            this.Logout.Size = new System.Drawing.Size(267, 95);
+            this.Logout.TabIndex = 23;
+            this.Logout.Text = "Logout";
+            this.Logout.UseVisualStyleBackColor = false;
+            this.Logout.Click += new System.EventHandler(this.logout_Click);
             // 
-            // button6
+            // DodajNoviArtikl
             // 
-            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.button6.Location = new System.Drawing.Point(1283, 22);
-            this.button6.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(168, 76);
-            this.button6.TabIndex = 24;
-            this.button6.Text = "Dodaj novi artikl";
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.dodajArtikl_Click);
+            this.DodajNoviArtikl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.DodajNoviArtikl.Location = new System.Drawing.Point(1283, 22);
+            this.DodajNoviArtikl.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.DodajNoviArtikl.Name = "DodajNoviArtikl";
+            this.DodajNoviArtikl.Size = new System.Drawing.Size(168, 76);
+            this.DodajNoviArtikl.TabIndex = 24;
+            this.DodajNoviArtikl.Text = "Dodaj novi artikl";
+            this.DodajNoviArtikl.UseVisualStyleBackColor = false;
+            this.DodajNoviArtikl.Click += new System.EventHandler(this.dodajArtikl_Click);
             // 
-            // button7
+            // PromijeniPopust
             // 
-            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.button7.Location = new System.Drawing.Point(1283, 122);
-            this.button7.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(168, 72);
-            this.button7.TabIndex = 25;
-            this.button7.Text = "Promijeni popust";
-            this.button7.UseVisualStyleBackColor = false;
-            this.button7.Click += new System.EventHandler(this.promijeniPopust_Click);
+            this.PromijeniPopust.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.PromijeniPopust.Location = new System.Drawing.Point(1283, 122);
+            this.PromijeniPopust.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.PromijeniPopust.Name = "PromijeniPopust";
+            this.PromijeniPopust.Size = new System.Drawing.Size(168, 72);
+            this.PromijeniPopust.TabIndex = 25;
+            this.PromijeniPopust.Text = "Promijeni popust";
+            this.PromijeniPopust.UseVisualStyleBackColor = false;
+            this.PromijeniPopust.Click += new System.EventHandler(this.promijeniPopust_Click);
             // 
-            // label7
+            // categoryLabel
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 411);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(121, 24);
-            this.label7.TabIndex = 26;
-            this.label7.Text = "Category name:";
+            this.categoryLabel.AutoSize = true;
+            this.categoryLabel.Location = new System.Drawing.Point(6, 411);
+            this.categoryLabel.Name = "categoryLabel";
+            this.categoryLabel.Size = new System.Drawing.Size(121, 24);
+            this.categoryLabel.TabIndex = 26;
+            this.categoryLabel.Text = "Category name:";
             // 
-            // comboBox1
+            // kategorijaCombo
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(133, 411);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(153, 31);
-            this.comboBox1.TabIndex = 27;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.kategorijaCombo.FormattingEnabled = true;
+            this.kategorijaCombo.Location = new System.Drawing.Point(133, 411);
+            this.kategorijaCombo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.kategorijaCombo.Name = "kategorijaCombo";
+            this.kategorijaCombo.Size = new System.Drawing.Size(153, 31);
+            this.kategorijaCombo.TabIndex = 27;
+            this.kategorijaCombo.SelectedIndexChanged += new System.EventHandler(this.KategorijaCB_SelectedIndexChanged);
             // 
-            // button8
+            // IzbaciArtikl
             // 
-            this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.button8.ForeColor = System.Drawing.Color.Black;
-            this.button8.Location = new System.Drawing.Point(1283, 218);
-            this.button8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(168, 69);
-            this.button8.TabIndex = 28;
-            this.button8.Text = "Izbaci artikl";
-            this.button8.UseVisualStyleBackColor = false;
-            this.button8.Click += new System.EventHandler(this.izbrisiArtikl_Click);
+            this.IzbaciArtikl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.IzbaciArtikl.ForeColor = System.Drawing.Color.Black;
+            this.IzbaciArtikl.Location = new System.Drawing.Point(1283, 219);
+            this.IzbaciArtikl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.IzbaciArtikl.Name = "IzbaciArtikl";
+            this.IzbaciArtikl.Size = new System.Drawing.Size(168, 69);
+            this.IzbaciArtikl.TabIndex = 28;
+            this.IzbaciArtikl.Text = "Izbaci artikl";
+            this.IzbaciArtikl.UseVisualStyleBackColor = false;
+            this.IzbaciArtikl.Click += new System.EventHandler(this.izbrisiArtikl_Click);
             // 
             // statusStrip1
             // 
@@ -710,6 +711,22 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // popustLabel
+            // 
+            this.popustLabel.AutoSize = true;
+            this.popustLabel.Location = new System.Drawing.Point(53, 788);
+            this.popustLabel.Name = "popustLabel";
+            this.popustLabel.Size = new System.Drawing.Size(69, 24);
+            this.popustLabel.TabIndex = 30;
+            this.popustLabel.Text = "Popust: ";
+            // 
+            // popustTB
+            // 
+            this.popustTB.Location = new System.Drawing.Point(131, 785);
+            this.popustTB.Name = "popustTB";
+            this.popustTB.Size = new System.Drawing.Size(155, 30);
+            this.popustTB.TabIndex = 31;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 23F);
@@ -717,31 +734,33 @@
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1924, 959);
             this.ContextMenuStrip = this.contextMenuStrip1;
+            this.Controls.Add(this.popustTB);
+            this.Controls.Add(this.popustLabel);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.IzbaciArtikl);
+            this.Controls.Add(this.kategorijaCombo);
+            this.Controls.Add(this.categoryLabel);
+            this.Controls.Add(this.PromijeniPopust);
+            this.Controls.Add(this.DodajNoviArtikl);
+            this.Controls.Add(this.Logout);
+            this.Controls.Add(this.NacinPlacanja);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.listBox2);
-            this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.MakniSRacuna);
+            this.Controls.Add(this.RacunList);
+            this.Controls.Add(this.kolicinaNumericUpDpwn);
+            this.Controls.Add(this.codeCheckerTB);
+            this.Controls.Add(this.CodeChecker);
+            this.Controls.Add(this.codeCheckerLabel);
+            this.Controls.Add(this.kolicinaLabel);
+            this.Controls.Add(this.kodArtiklaLabel);
+            this.Controls.Add(this.IzradiRacun);
+            this.Controls.Add(this.DodajNaRacun);
+            this.Controls.Add(this.cijenaTB);
+            this.Controls.Add(this.cijenaLabel);
+            this.Controls.Add(this.PretrazivacArtikala);
+            this.Controls.Add(this.kodArtiklaTB);
+            this.Controls.Add(this.productNameTB);
+            this.Controls.Add(this.productNameLabel);
             this.Font = new System.Drawing.Font("Segoe Print", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
@@ -749,12 +768,12 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseClick);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kolicinaNumericUpDpwn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.artikliBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.artikliDataSet2)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.NacinPlacanja.ResumeLayout(false);
+            this.NacinPlacanja.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
@@ -765,22 +784,22 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label productNameLabel;
+        private System.Windows.Forms.TextBox productNameTB;
+        private System.Windows.Forms.TextBox kodArtiklaTB;
+        private System.Windows.Forms.ListBox PretrazivacArtikala;
+        private System.Windows.Forms.Label cijenaLabel;
+        private System.Windows.Forms.TextBox cijenaTB;
+        private System.Windows.Forms.Button DodajNaRacun;
+        private System.Windows.Forms.Button IzradiRacun;
+        private System.Windows.Forms.Label kodArtiklaLabel;
+        private System.Windows.Forms.Label kolicinaLabel;
+        private System.Windows.Forms.Label codeCheckerLabel;
+        private System.Windows.Forms.Button CodeChecker;
+        private System.Windows.Forms.TextBox codeCheckerTB;
+        private System.Windows.Forms.NumericUpDown kolicinaNumericUpDpwn;
+        private System.Windows.Forms.ListBox RacunList;
+        private System.Windows.Forms.Button MakniSRacuna;
         private System.Windows.Forms.DataGridView dataGridView1;
         private ArtikliDataSet2 artikliDataSet2;
         private System.Windows.Forms.BindingSource artikliBindingSource;
@@ -793,18 +812,18 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn datumNabaveDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kodArtiklaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn popustDataGridViewTextBoxColumn;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.GroupBox NacinPlacanja;
+        private System.Windows.Forms.RadioButton bonoviRadio;
+        private System.Windows.Forms.RadioButton karticaRadio;
+        private System.Windows.Forms.RadioButton cekoviRadio;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.RadioButton gotovinaRadio;
+        private System.Windows.Forms.Button Logout;
+        private System.Windows.Forms.Button DodajNoviArtikl;
+        private System.Windows.Forms.Button PromijeniPopust;
+        private System.Windows.Forms.Label categoryLabel;
+        private System.Windows.Forms.ComboBox kategorijaCombo;
+        private System.Windows.Forms.Button IzbaciArtikl;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
@@ -832,6 +851,8 @@
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.FontDialog fontDialog1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.TextBox popustTB;
+        private System.Windows.Forms.Label popustLabel;
     }
 }
 
