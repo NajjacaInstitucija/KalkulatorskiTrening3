@@ -38,6 +38,8 @@ namespace T
             textBox3.Enabled = false;
             toolStripStatusLabel6.Text = "Trenutni poslužitelj: " + imePosluzitelja;
 
+            errorProvider1.BlinkStyle = ErrorBlinkStyle.BlinkIfDifferentError;
+
             if(!manager)
             {
                 button6.Visible = false;
@@ -217,8 +219,16 @@ namespace T
         //dodavanje artikla u kosaricu
         private void dodajNaRacun_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(textBox2.Text))
+
+            if(string.IsNullOrEmpty(textBox2.Text))
             {
+                errorProvider1.SetError(button1, "Dodavanje ničeg nije moguće.");
+                return;
+            }
+
+            else 
+            {
+                errorProvider1.Clear();
                 OleDbCommand cmd = new OleDbCommand();
 
                 cmd.CommandType = CommandType.Text;
@@ -287,6 +297,16 @@ namespace T
         //brisanje artikla s racuna
         private void makniSRacuna_Click(object sender, EventArgs e)
         {
+
+            if (listBox1.SelectedIndex < 0 || 
+                listBox2.GetItemText(listBox2.SelectedItem) == "Kod artikla\t" + "Naziv\t\t" + "Cijena\t" + "Kolicina\t" + "Popust\t" + "Iznos" ||
+                listBox2.GetItemText(listBox2.SelectedItem) == "------------------------------------------------------------------------------------------------------------------------")
+            {
+                errorProvider1.SetError(button4, "Mora biti odabran artikl kojeg želimo maknuti");
+                return;
+            }
+
+            errorProvider1.Clear();
             DialogResult res = MessageBox.Show("Želite li sigurno maknuti označeni artikl?", "Brisanje artikla s računa", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
 
             if (res == DialogResult.Yes)
@@ -318,6 +338,13 @@ namespace T
         // ispis racuna
         private void izradiRacun_Click(object sender, EventArgs e)
         {
+            if (racun.Count < 1)
+            {
+                errorProvider1.SetError(button2, "Mora biti bar jedan artikl na računu.");
+                return;
+            }
+
+            errorProvider1.Clear();
             string text = "Kod artikla\t" + "Naziv\t\t" + "Cijena\t" + "Kolicina\t" + "Popust\t" + "Iznos";
             text += Environment.NewLine;
             text += "------------------------------------------------------------------------------";

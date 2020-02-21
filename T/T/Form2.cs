@@ -41,35 +41,76 @@ namespace T
             }
 
             errorProvider1.Clear();
+            string pass = "";
 
             OleDbCommand cmd = new OleDbCommand();
 
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "SELECT Username, Password, IsManager from Zaposlenici where Username = @Username and Password = @Password";
+            cmd.CommandText = "SELECT Username, Password, IsManager from Zaposlenici where Username = @Username";
             cmd.Parameters.AddWithValue("@Username", textBox1.Text);
-            cmd.Parameters.AddWithValue("@Password", textBox2.Text);
+            //cmd.Parameters.AddWithValue("@Password", textBox2.Text);
             cmd.Connection = connection2;
 
             connection2.Open();
             OleDbDataReader reader = cmd.ExecuteReader();
             bool kontrola = false;
             string ime = "";
-            while (reader.Read())
+            if (reader.Read())
             {
                 kontrola = true;
                 if (reader.GetBoolean(2)) manager = true;
 
                 ime = reader.GetString(0);
+                pass = reader.GetString(1);
+
                 
             }
             reader.Close();
             connection2.Close();
             
-            form1 = new Form1(manager, ime, this.BackColor, this.Font);
+            
             if (kontrola)
             {
-                form1.Show();
-                this.Hide();
+
+                if(textBox1.Text == "pero" || textBox1.Text == "nikola" || textBox1.Text == "josko")
+                {
+                    if(pass == textBox2.Text)
+                    {
+                        form1 = new Form1(manager, ime, this.BackColor, this.Font);
+                        MessageBox.Show("Login uspješan za korisnika: " + ime, "Login", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        form1.Show();
+                        this.Hide();
+                    }
+
+                    else
+                    {
+                        errorProvider1.SetError(textBox2, "Pogresan password ili username");
+                        errorProvider1.SetError(textBox1, "Pogresan password ili username");
+                    }
+
+                }
+
+                else if(Encrypt_Decrypt.decrypt(pass) == textBox2.Text)
+                { 
+
+                    form1 = new Form1(manager, ime, this.BackColor, this.Font);
+                    MessageBox.Show("Login uspješan za korisnika: " + ime, "Login", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    form1.Show();
+                    this.Hide();
+                }
+
+                else
+                {
+                    errorProvider1.SetError(textBox2, "Pogresan password ili username");
+                    errorProvider1.SetError(textBox1, "Pogresan password ili username");
+                }
+                
+            }
+
+            else
+            {
+                errorProvider1.SetError(textBox2, "Pogresan password ili username");
+                errorProvider1.SetError(textBox1, "Pogresan password ili username");
             }
         }
 

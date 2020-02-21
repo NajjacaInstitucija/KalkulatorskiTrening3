@@ -9,23 +9,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Security.Cryptography;
+using System.IO;
 
 namespace T
 {
     public partial class Form6 : Form
     {
         OleDbConnection connection6 = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\stvar\OneDrive\Desktop\T\T\Zaposlenici.mdb");
-
-
-        static string encryptPassword(string value)
-        {
-            using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
-            {
-                UTF8Encoding utf8 = new UTF8Encoding();
-                byte[] data = md5.ComputeHash(utf8.GetBytes(value));
-                return Convert.ToBase64String(data);
-            }
-        }
 
         public Form6(Color bc, Font f)
         {
@@ -52,7 +42,7 @@ namespace T
             }
 
             errorProvider1.Clear();
-            if(textBox2.Text.CompareTo(textBox3.Text) != 0)
+            if(textBox2.Text.ToString().Trim().ToLower().CompareTo(textBox3.Text.ToString().Trim().ToLower()) != 0)
             {
                 errorProvider1.SetError(textBox3, "Password se ne poklapa.");
                 return;
@@ -89,12 +79,12 @@ namespace T
 
                 OleDbCommand cmdInsert = new OleDbCommand();
                 cmdInsert.CommandType = CommandType.Text;
-                cmdInsert.CommandText = "INSERT INTO Zaposlenici (Username, Password, IsManager)" +
+                cmdInsert.CommandText = "INSERT INTO Zaposlenici ([Username], [Password], IsManager)" +
                     "VALUES (@Username, @Password, @IsManager)";
 
                 cmdInsert.Parameters.AddWithValue("@Username", textBox1.Text);
-                cmdInsert.Parameters.AddWithValue("@Password", encryptPassword(textBox2.Text));
-                cmdInsert.Parameters.AddWithValue("@IsManager", checkBox1.CheckState);
+                cmdInsert.Parameters.AddWithValue("@Password", Encrypt_Decrypt.encrypt(textBox2.Text));
+                cmdInsert.Parameters.AddWithValue("@IsManager", checkBox1.Checked);
                 cmdInsert.Connection = connection6;
 
 
@@ -105,8 +95,7 @@ namespace T
                 connection6.Close();
 
                 this.Hide();
-                Form2 form2 = new Form2(this.BackColor, this.Font);
-                form2.Show();
+               
 
             }
 
@@ -119,8 +108,7 @@ namespace T
         private void zatvoriToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide(); 
-            Form2 form2 = new Form2(this.BackColor, this.Font);
-            form2.Show();
+           
         }
 
         private void bojuPozadineToolStripMenuItem_Click(object sender, EventArgs e)

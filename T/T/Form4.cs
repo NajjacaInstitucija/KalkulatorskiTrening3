@@ -25,7 +25,7 @@ namespace T
             this.Font = f;
             this.BackColor = bc;
             listBox1.Items.Clear();
-
+            errorProvider1.BlinkStyle = ErrorBlinkStyle.NeverBlink;
             
 
             OleDbCommand cmd = new OleDbCommand();
@@ -66,7 +66,13 @@ namespace T
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (listBox1.SelectedIndex < 0)
+            {
+                errorProvider1.SetError(button1, "Treba odabrati artikl kojem želimo promijeniti popust.");
+                return; 
+            }
 
+            errorProvider1.Clear();
             DialogResult uvjet = MessageBox.Show("Primjena popusta će utjecati na stanje u dućanu", "Warning", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
 
             if (uvjet == DialogResult.Yes)
