@@ -1,0 +1,13 @@
+C:\ono moje\c#\Restoran\bin\Debug\netcoreapp3.1\Restoran.exe
+C:\ono moje\c#\Restoran\bin\Debug\netcoreapp3.1\Restoran.deps.json
+C:\ono moje\c#\Restoran\bin\Debug\netcoreapp3.1\Restoran.runtimeconfig.json
+C:\ono moje\c#\Restoran\bin\Debug\netcoreapp3.1\Restoran.runtimeconfig.dev.json
+C:\ono moje\c#\Restoran\bin\Debug\netcoreapp3.1\Restoran.dll
+C:\ono moje\c#\Restoran\bin\Debug\netcoreapp3.1\Restoran.pdb
+C:\ono moje\c#\Restoran\obj\Debug\netcoreapp3.1\Restoran.csprojAssemblyReference.cache
+C:\ono moje\c#\Restoran\obj\Debug\netcoreapp3.1\Restoran.AssemblyInfoInputs.cache
+C:\ono moje\c#\Restoran\obj\Debug\netcoreapp3.1\Restoran.AssemblyInfo.cs
+C:\ono moje\c#\Restoran\obj\Debug\netcoreapp3.1\Restoran.dll
+C:\ono moje\c#\Restoran\obj\Debug\netcoreapp3.1\Restoran.pdb
+C:\ono moje\c#\Restoran\obj\Debug\netcoreapp3.1\Restoran.csproj.CoreCompileInputs.cache
+C:\ono moje\c#\Restoran\obj\Debug\netcoreapp3.1\Restoran.genruntimeconfig.cache
